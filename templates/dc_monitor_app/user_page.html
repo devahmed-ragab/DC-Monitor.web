@@ -1,0 +1,89 @@
+{% extends 'dc_monitor_app/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="page-body">
+        <div class="container-fluid">
+          <div class="page-header">
+            <div class="row">
+              <div class="col-lg-12">
+                <h3>
+                  System OverView</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Container-fluid starts-->
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12 xl-100">
+              <div class="row" >
+                <div class="col-xl-4 xl-50 col-md-4 box-col-4">
+                  <div class="card">
+                    <div class="card-body tag-card">
+                      <div class="progressbar-widgets">
+                        <div class="media media-widgets">
+                          <div class="media-body">
+                            <p class="mb-0 ">Devices</p>
+                            <h3 class="mt-0 mb-0 f-w-600"><span class="counter">{{ devices.count }}</span><span><i class="font-danger"
+                                  data-feather="trending-up"></i></span></h3>
+                          </div>
+                        </div>
+                        <div class="progress sm-progress-bar progress-animate">
+                          <div class="progress-gradient-danger" role="progressbar" style="width: {{ dev_percentage }}%" aria-valuenow="3"
+                            aria-valuemin="0" aria-valuemax="100"><span class="font-danger">{{ dev_percentage }}%</span><span
+                              class="animate-circle"></span></div>
+                        </div><span class="tag-content-danger tag-hover-effect"><i data-feather="trending-up">
+                          </i></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-xl-4 xl-50 col-md-4 box-col-4">
+                  <div class="card">
+                    <div class="card-body tag-card">
+                      <div class="progressbar-widgets">
+                        <div class="media media-widgets">
+                          <div class="media-body">
+                            <p class="mb-0">Total Consumption</p>
+                            <h3 class="mt-0 mb-0 f-w-600"><span class="counter">{{ users_count }}</span><span><i class="font-success"
+                                  data-feather="trending-up"></i></span></h3>
+                          </div>
+                        </div>
+                        <div class="progress sm-progress-bar progress-animate">
+                          <div class="progress-gradient-success" role="progressbar" style="width: 100%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                              <span class="font-success">100%</span><span class="animate-circle"></span></div>
+                        </div><span class="tag-content-success tag-hover-effect"><i data-feather="trending-up">
+                          </i></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-4 xl-50 col-md-4 box-col-4">
+                  <div class="card">
+                    <div class="card-body tag-card">
+                      <div class="progressbar-widgets">
+                        <div class="media media-widgets">
+                          <div class="media-body">
+                            <p class="mb-0">Balance</p>
+                            <h3 class="mt-0 mb-0 f-w-600"><span class="counter">{{ new_customers_count }}</span><span><i class="font-primary"
+                                  data-feather="trending-up"></i></span></h3>
+                          </div>
+                        </div>
+                        <div class="progress sm-progress-bar progress-animate">
+                          <div class="progress-gradient-primary" role="progressbar" style="width: {{new_customers_percentage}}%"
+                            aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"><span
+                              class="font-primary">{{ new_customers_percentage }} %</span><span class="animate-circle"></span></div>
+                        </div><span class="tag-content-primary tag-hover-effect"><i data-feather="trending-up">
+                          </i></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+{% endblock %}

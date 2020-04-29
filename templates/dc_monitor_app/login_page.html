@@ -1,0 +1,80 @@
+{% extends 'dc_monitor_app/registration_base.html' %}
+{% load static %}
+{% load icons %}
+{% load widget_tweaks %}
+{% block content %}
+
+<div class=" bg-pattern">
+        <div class="account-pages my-5 pt-sm-5 mt-sm-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-center mb-5">
+                            <a style="color:#" href="" class="logo"><img src="{% static 'images/blueLogo.png' %}"  height="75" alt="logo"></a>
+                            <h5 class="font-size-16 text-50 mb-4" style="color: #3051D3">To monitor your balance in electricity and know your consumption </h5>
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+                <div class="row justify-content-center">
+                    <div class="col-xl-5 col-sm-8">
+                        <div class="card">
+                            <div class="card-body p-4">
+                                <div class="p-2">
+                                    <h5 class="mb-5 text-center">Sign in to continue to Dc Monitor.</h5>
+
+                                    <form class="form-horizontal" method="POST" >
+                                        {% csrf_token %}
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group form-group-custom mb-4">
+                                                    <input type="username" class="form-control" id="usernamee" name="username" required>
+                                                    <label for="username">Emil</label>
+                                                </div>
+
+                                                <div class="form-group form-group-custom mb-4">
+                                                    <input type="password" class="form-control" id="password" name="password" required>
+                                                    <label for="password">Password</label>
+                                                </div>
+
+                                                <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input" id="customControlInline">
+                                                        <label class="custom-control-label" for="customControlInline">Remember me</label>
+                                                    </div>
+                                                </div>
+                                                        <div class="col-md-6">
+                                                            <div class="text-md-right mt-3 mt-md-0">
+                                                                <a href="recover.html" class="text-muted">
+                                                                    {% icon  'lock ' %}   Forgot your password?</a>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+
+                                                <div class="mt-4">
+                                                    <input class="btn  btn-block waves-effect waves-light" style="background-color: #3051D3;color: #fff;"  type="submit">
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="mt-4 text-left">
+                                                            <a href="{% url 'registration_view' %}" class="text-muted">{% icon  'fas fa-user-circle' %} Create an account</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                     {% for m in messages %}
+                                      <p class="message">{{ m }}</p>
+                                      {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+            </div>
+        </div>
+</div>
+{% endblock %}

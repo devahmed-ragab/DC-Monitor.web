@@ -1,0 +1,35 @@
+{% load static %}
+<div class="page-main-header">
+        <div class="main-header-right row">
+          <div class="main-header-left d-lg-none">
+            <div class="logo-wrapper"><a href=""><img src="{% static 'images/logo1.png' %}" alt="user_image"></a></div>
+          </div>
+          <div class="mobile-sidebar d-block">
+            <div class="media-body text-right switch-sm">
+              <label class="switch">
+                <input id="sidebar-toggle" type="checkbox" checked="checked"><span class="switch-state"></span>
+              </label>
+            </div>
+          </div>
+          <div class="vertical-mobile-sidebar"><i class="fa fa-bars sidebar-bar"></i></div>
+          <div class="nav-right col left-menu-header">
+
+            <div class="d-xl-none mobile-toggle-left pull-left"></div>
+          </div>
+          <div class="nav-right col pull-right right-menu">
+            <ul class="nav-menus">
+              <li>
+                <div class="dropdown">
+                  <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><span class="media user-header">
+                      <img class="mr-2 rounded-circle img-35" src="{{ request.user.clint.prof_image.url }}"  height="35" width="35" ><span class="media-body">
+                      <span class="f-12 f-w-600"></span>{{ request.user.first_name }}<span class="d-block">{{ request.user.username }}</span></span></span></button>
+                </div>
+              </li>
+
+
+            </ul>
+          </div>
+
+          <div class="d-lg-none mobile-toggle pull-right"><i data-feather="more-horizontal"></i></div>
+        </div>
+      </div>

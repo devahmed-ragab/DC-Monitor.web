@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Creative admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, Creative admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="pixelstrap">
+    <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+    <title>DC Monitor</title>
+    <!-- Google font-->
+    <link href="{{'https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900'}}" rel="stylesheet">
+    <link href="{{'https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i'}}" rel="stylesheet">
+    <link href="{{'https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i'}}" rel="stylesheet">
+    <!-- Font Awesome-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fontawesome.css' %}">
+    <!-- ico-font-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/icofont.css' %}">
+    <!-- Themify icon-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/themify.css' %}">
+    <!-- Flag icon-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/flag-icon.css' %}">
+    <!-- Feather icon-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/feather-icon.css' %}">
+    <!-- Plugins css start-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/chartist.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/prism.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/vector-map.css' %}">
+    <!-- Plugins css Ends-->
+    <!-- Bootstrap css-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <!-- App css-->
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link id="color" rel="stylesheet" href="{% static 'css/light-1.css' %}">
+    <!-- Responsive css-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+  </head>
+  <body>
+
+
+
+  <div class="page-wrapper">
+
+  {% include 'dc_monitor_app/information_bar.html' %}
+    <div class="page-body-wrapper">
+    {% if request.user.is_staff %}
+        {% include 'dc_monitor_app/sidebar.html' %}
+    {% endif %}
+        {% block content %}
+
+        {% endblock %}
+    </div>
+  {% include 'dc_monitor_app/footer.html' %}
+  </div>
+
+  <!-- latest jquery-->
+  <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+  <!-- Bootstrap js-->
+  <script src="{% static 'js/bootstrap/popper.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap/bootstrap.js' %}"></script>
+  <!-- feather icon js-->
+  <script src="{% static 'js/icons/feather-icon/feather.min.js' %}"></script>
+  <script src="{% static 'js/icons/feather-icon/feather-icon.js' %}"></script>
+  <!-- Sidebar jquery-->
+  <script src="{% static 'js/sidebar-menu.js' %}"></script>
+  <script src="{% static 'js/config.js' %}"></script>
+  <!-- Plugins JS start-->
+  <script src="{% static 'js/chart/chartjs/chart.min.js' %}"></script>
+  <script src="{% static 'js/chart/chartist/chartist.js' %}"></script>
+  <script src="{% static 'js/chart/chartist/chartist-plugin-tooltip.js' %}"></script>
+  <script src="{% static 'js/chart/knob/knob.min.js' %}"></script>
+  <script src="{% static 'js/chart/knob/knob-chart.js' %}"></script>
+  <script src="{% static 'js/prism/prism.min.js' %}"></script>
+  <script src="{% static 'js/clipboard/clipboard.min.js' %}" ></script>
+  <script src="{% static 'js/counter/jquery.waypoints.min.js' %}" ></script>
+  <script src="{% static 'js/counter/jquery.counterup.min.js' %}"></script>
+  <script src="{% static 'js/counter/counter-custom.js' %}"></script>
+  <script src="{% static 'js/custom-card/custom-card.js' %}"></script>
+  <script src="{% static 'js/notify/bootstrap-notify.min.js' %}"></script>
+  <script src="{% static 'js/vector-map/jquery-jvectormap-2.0.2.min.js' %}"></script>
+  <script src="{% static 'js/vector-map/map/jquery-jvectormap-world-mill-en.js' %}"></script>
+  <script src="{% static 'js/vector-map/map/jquery-jvectormap-us-aea-en.js' %}"></script>
+  <script src="{% static 'js/vector-map/map/jquery-jvectormap-uk-mill-en.js' %}"></script>
+  <script src="{% static 'js/vector-map/map/jquery-jvectormap-au-mill.js' %}"></script>
+  <script src="{% static 'js/vector-map/map/jquery-jvectormap-chicago-mill-en.js' %}"></script>
+  <script src="{% static 'js/vector-map/map/jquery-jvectormap-in-mill.js' %}"></script>
+  <script src="{% static 'js/vector-map/map/jquery-jvectormap-asia-mill.js' %}"></script>
+  <script src="{% static 'js/dashboard/default.js' %}"></script>
+  <script src="{% static 'js/notify/index.js' %}"></script>
+  <script src="{% static 'js/chat-menu.js' %}"></script>
+  <script src="{% static 'js/tooltip-init.js' %}"></script>
+  <script src="{% static 'js/animation/wow/wow.min.js' %}"></script>
+  <!-- Plugins JS Ends-->
+  <!-- Theme js-->
+  <script src="{% static 'js/script.js' %}"></script>
+  <!-- login js-->
+  <!-- Plugin used-->
+
+  </body>
+</html>
