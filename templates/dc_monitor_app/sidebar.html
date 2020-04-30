@@ -6,24 +6,24 @@
           </div>
           <div class="sidebar custom-scrollbar">
             <ul class="sidebar-menu">
-              <li ><a href="#" class="sidebar-header" ><i data-feather="home"></i><span>Dashboard</span></a></li>
+              <li ><a href="{% url 'dashboard_view' %}" class="sidebar-header" ><i data-feather="home"></i><span>Dashboard</span></a></li>
 
               <li><a class="sidebar-header" href="#"><i data-feather="airplay"></i><span>Tools</span></a>
                 <ul class="sidebar-submenu">
-                  <li><a href="addnewtool.html">Add New Tool</a></li>
-                  <li><a href="alltools.html">View All Tools</a></li>
+                  <li><a href="{% url 'add_device' %}">Add New Tool</a></li>
+                  <li><a href="{% url 'all_device' %}">View All Tools</a></li>
                 </ul>
               </li>
               <li><a class="sidebar-header" href="#"><i data-feather="users"></i><span>Customers</span></i></a>
                 <ul class="sidebar-submenu">
-                  <li><a href="allcutomers.html">View All Customers</a></li>
+                  <li><a href="{% url 'all_customers_view' %}">View All Customers</a></li>
                 </ul>
               </li>
 
               <li><a class="sidebar-header" href="#"><i data-feather="align-right"></i ><span>Devices</span></a>
                 <ul class="sidebar-submenu">
-                  <li><a href="addnewdevice.html">Add New Device</a></li>
-                  <li><a href="alldevicies.html">View All Devicies</a></li>
+                  <li><a href="{% url 'add_appliance_view' %}">Add New Appliance</a></li>
+                  <li><a href="{% url 'all_appliance_view' %}">View All Appliance</a></li>
                 </ul>
               </li>
               <li><a class="sidebar-header" href="system.html"><i data-feather="database"></i ><span>System</span></a>

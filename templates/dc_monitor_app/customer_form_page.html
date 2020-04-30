@@ -1,0 +1,76 @@
+{% extends 'dc_monitor_app/base.html' %}
+{% block content %}
+
+<div class="page-body">
+    <div class="container-fluid">
+      <div class="page-header">
+        <div class="row">
+          <div class="col-lg-12">
+            <h3>Customers</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Container-fluid starts-->
+    <div class="container-fluid">
+      <div class="edit-profile">
+        <div class="row">
+            <div class="col-xl-12 xl-80 ">
+                <div class="card">
+                  <div class="card-header">
+                    <h5>All Cutomers</h5>
+                  </div>
+                  <div class="card-body p-0">
+                    <div class="sales-product-table table-responsive">
+
+                      <table class="table table-bordernone" >
+                        <thead>
+                          <tr>
+                            <th scope="col">Number</th>
+                            <th scope="col">Tool Serial</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">E-mail</th>
+                            <th scope="col">Phone Number</th>
+                            <th scope="col"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        {% for user in users %}
+                          <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>
+                                {% for n in user.clint.smartmeters_set.all  %}
+
+                                  <h6 class="f-w-600">{{ n }}</h6><br>
+
+                                 {% endfor %}
+                            </td>
+                            <td>
+                                <h6 class="f-w-600">{{user.clint.full_name}}</h6>
+                            </td>
+
+                            <td>
+                                <h6 class="f-w-600">{{user.clint.email}}</h6>
+                            </td>
+
+                            <td>
+                                <h6 class="f-w-600">01112891913</h6>
+                            </td>
+
+                            <td>
+                                <a href="#"  class="badge badge-pill pill-badge-secondary btn btn-danger">delete</a>
+                            </td>
+                          </tr>
+                        {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+      </div>
+    </div>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -4,7 +4,30 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef8ca716-dfe7-4fd8-8352-3293d013ce0e" name="Default Changelist" comment="" />
+    <list default="true" id="ef8ca716-dfe7-4fd8-8352-3293d013ce0e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dc_monitor_app/migrations/0002_auto_20200430_0441.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dc_monitor_app/migrations/0003_auto_20200430_0441.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dc_monitor_app/migrations/0004_auto_20200430_1006.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dc_monitor_app/migrations/0005_auto_20200430_1024.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/dc_monitor_app/add_appliance_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/dc_monitor_app/all_appliance_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/dc_monitor_app/all_tools_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/dc_monitor_app/customer_form_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dc_monitor_app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dc_monitor_app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dc_monitor_app/junkData.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/junkData.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dc_monitor_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dc_monitor_app/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/url.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dc_monitor_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/add_tool_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/add_tool_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/login_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/login_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/sidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/user_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/user_page.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,9 +45,14 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1aak4UuyMPNUoIYE7qLwXaEGOhO" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/static/images" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
@@ -100,11 +128,25 @@
       <workItem from="1587940754069" duration="2477000" />
       <workItem from="1587997519246" duration="329000" />
       <workItem from="1588045267419" duration="13383000" />
-      <workItem from="1588125818477" duration="5321000" />
+      <workItem from="1588125818477" duration="10969000" />
+      <workItem from="1588214961515" duration="25890000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

@@ -2,10 +2,10 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import Group
-from dc_monitor_app.models import Clint, SmartMeters
-from .forms import CreateClintForm
+from .forms import *
 from django.contrib import messages
 from .decorators import *
+from .models import Clint
 
 from datetime import date, timedelta
 
@@ -16,8 +16,8 @@ def percentage(on_devices, all_devices):
     except ZeroDivisionError:
         div_sum = 0
 
-    on_devic_percentage = div_sum * 100
-    return on_devic_percentage
+    on_devi_percentage = div_sum * 100
+    return int(on_devi_percentage)
 
 
 @unauthenticated_user
@@ -73,14 +73,13 @@ def logout_view(request):
 def dashboard_view(request):
     devices = SmartMeters.objects.all()
     devices_num = devices.count()
-    working_devices = (devices.filter(device_status=1).count() / devices_num) * 100 if devices_num > 0 else 0
-
+    working_devices = percentage(devices.filter(device_status=1).count(), devices_num)
     days_before_30 = (date.today() - timedelta(days=30)).isoformat()
 
     users = Clint.objects.all()
     users_count = users.count()
     new_customers = users.filter(date_created__gte=days_before_30).count()
-    new_customers_percentage = (new_customers / users_count) * 100 if users_count > 0 else 0
+    new_customers_percentage = percentage(new_customers, users_count)
 
     # active_users = users.filter(is_active=True).count()
     # active_users_percentage = (active_users / users_count) * 100
@@ -113,6 +112,56 @@ def user_dashboard_view(request):
 
 @allowed_groups(groups=['superadmin'])
 def add_smartmeter_view(request):
+    form = AddDeviceForm()
+    if request.method == 'POST':
+        form = AddDeviceForm(request.POST)
+        if form.is_valid():
+            print('valid SER ')
+            form.save()
     context = {
+        'form': form
     }
     return render(request, 'dc_monitor_app/add_tool_page.html', context)
+
+
+def all_devices_view(request):
+    devices = SmartMeters.objects.all()
+    counter = 0
+    context = {
+        'devices': devices,
+        'counter': counter
+    }
+    return render(request, 'dc_monitor_app/all_tools_page.html', context)
+
+
+def all_customers_view(request):
+    # group = Group.objects.get(name='user')
+    # users = group.user_set.all()
+    users = User.objects.filter(groups__name='user')
+
+    context = {
+        'users': users
+    }
+    return render(request, 'dc_monitor_app/customer_form_page.html', context)
+
+
+def all_appliance_view(request):
+    appliance = Appliances.objects.all()
+    context = {
+        'appliance': appliance
+    }
+    return render(request, 'dc_monitor_app/all_appliance_page.html',context)
+
+
+def add_appliance_view(request):
+    form = AddApplianceForm()
+    if request.method == 'POST':
+
+        form = AddApplianceForm(request.POST)
+        if form.is_valid():
+            print("saving form ....")
+            form.save()
+    context = {
+        'form': form
+    }
+    return render(request, 'dc_monitor_app/add_appliance_page.html', context)

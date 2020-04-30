@@ -12,17 +12,16 @@ class Clint(models.Model):
     second_name = models.CharField(max_length=60)
     email = models.CharField(max_length=150, null=True)
     prof_image = models.ImageField(null=True, blank=True, default="default-profile.png")
-    date_created = models.DateTimeField(auto_now_add=True, null=True)
+    date_created = models.DateTimeField(auto_now_add=True, null=False)
     location = models.CharField(max_length=100, null=True, blank=True)
-
-    # smart_meter_SER = models.ForeignKey(SmartMeters, null=True, on_delete=models.SET_NULL)
-
-    def __str__(self):
-        return "%s %s" % (self.first_name, self.second_name)
+    phone_number = models.IntegerField(null=True, unique=True, blank=True)
 
     @property
     def full_name(self):
         return '%s %s' % (self.first_name, self.second_name)
+
+    def __str__(self):
+        return "%s %s" % (self.first_name, self.second_name)
 
 
 class Bill(models.Model):
@@ -73,7 +72,94 @@ class SmartMeters(models.Model):
     # conception_cost = models.FloatField(default=0.0)
     # electrical_load = models.FloatField(default=0.0)
     # price_category = models.IntegerField(default=1, validators=[MinValueValidator(1),
-    #                                                             MaxValueValidator(7)])
+    #                                                              MaxValueValidator(7)])
 
     def __str__(self):
         return "NO. %s" % self.SER
+
+
+class ApplianceCategory(models.Model):
+    categ_name = [
+        ('Home Products Services', 'Home Products Services'),
+        ('Air Conditioning', 'Air Conditioning'),
+        ('Electronic Pest Control', 'Electronic Pest Control'),
+        ('Home Air Cleaners', 'Home Air Cleaners'),
+        ('Household Cleaning Equipment', 'Household Cleaning Equipment'),
+        ('Laundry Appliances', 'Laundry Appliances'),
+        ('Small Home Appliances', 'Small Home Appliances'),
+        ('Space Heaters', 'Space Heaters'),
+        ('Water Heaters', 'Water Heaters'),
+        ('Cooking Appliances', 'Cooking Appliances'),
+        ('Dishwashers & Dryers', 'Dishwashers & Dryers'),
+        ('Electric Coffee Makers', 'Electric Coffee Makers'),
+        ('Electric Kettles & Boiling Appliances', 'Electric Kettles & Boiling Appliances'),
+        ('Food Preparation Appliances', 'Food Preparation Appliances'),
+        ('Fridges & Freezers', 'Fridges & Freezers'),
+        ('Kitchen Ovens', 'Kitchen Ovens'),
+        ('Kitchen Stoves, Tops & Hoods', 'Kitchen Stoves, Tops & Hoods'),
+        ('Small Kitchen Appliances', 'Small Kitchen Appliances'),
+        ('Water Treatment Appliances', 'Water Treatment Appliances'),
+        ('Others', 'Others')
+    ]
+    category = models.CharField(max_length=40, null=True, choices=categ_name)
+
+    def __str__(self):
+        return self.category
+
+
+class Seller(models.Model):
+    # todo add branches table
+    name = models.CharField(max_length=100, blank=True, null=True)
+    location = models.CharField(max_length=100, blank=True, null=True)
+    number = models.PositiveIntegerField(blank=True, null=True)
+    date_created = models.DateTimeField(auto_now_add=True, null=False)
+
+    def __str__(self):
+        return "%s " % self.name
+
+
+class Factory(models.Model):
+    name = models.CharField(max_length=100, null=False)
+
+    @property
+    def getFactoryNames(self):
+        names = self.objects.all()
+        return names
+
+
+    def __str__(self):
+        return "%s factory" % self.name
+
+
+class Appliances(models.Model):
+    consumption_labels = [
+        (1, 'A+++'), (2, 'A++'), (3, 'A+'),
+        (4, 'A'), (5, 'B'), (6, 'C'),
+    ]
+    sub_category = models.CharField(max_length=100, blank=True, null=True)
+    model = models.CharField(max_length=200, blank=False, null=False)
+    name = models.CharField(max_length=400, blank=False, null=False)
+    price = models.FloatField(blank=False, null=False)
+    warranty = models.FloatField(blank=True)
+
+    rate = models.IntegerField(default=0, validators=[MinValueValidator(1), MaxValueValidator(5)])
+    consumption_label = models.PositiveSmallIntegerField(blank=True, choices=consumption_labels)
+    production_Year = models.PositiveSmallIntegerField(null=True, blank=True,
+                                                       validators=[MinValueValidator(1999), MaxValueValidator(2100)])
+    wattage = models.FloatField(blank=True)
+
+    wight = models.FloatField(blank=True)
+    height = models.FloatField(blank=True)
+    depth = models.FloatField(blank=True)
+
+    date_created = models.DateTimeField(auto_now_add=True, null=False)
+
+    seller = models.ManyToManyField(Seller)
+    appliance_category = models.ForeignKey(ApplianceCategory, null=True, on_delete=models.SET_NULL)
+    factory = models.ForeignKey(Factory, on_delete=models.CASCADE)
+
+    class Meta:
+        ordering = ['appliance_category']
+
+    def __str__(self):
+        return "%s" % self.name

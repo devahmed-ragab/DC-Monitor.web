@@ -1,0 +1,110 @@
+{% extends 'dc_monitor_app/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+    <div class="page-body">
+
+    <div class="container-fluid">
+      <div class="page-header">
+        <div class="row">
+          <div class="col-lg-12">
+            <h3>Devicies</h3>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- Container-fluid starts-->
+    <div class="container-fluid">
+      <div class="edit-profile">
+        <div class="row">
+          <div class="col-lg-12">
+            <form class="card" method="POST">
+                {% csrf_token %}
+              <div class="card-header">
+                <h4 class="card-title mb-0">Add New Device</h4>
+                <div class="card-options"><a class="card-options-collapse" href="#" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
+                    <a class="card-options-remove" href="#" data-toggle="card-remove"><i class="fe fe-x"></i></a></div>
+              </div>
+              <div class="card-body">
+                <div class="row">
+
+                  <div class="col-sm-12 col-md-12">
+                    <div class="form-group">
+                      <label class="form-label">Name</label>
+                        {% render_field form.name type="text" class="form-control" placeholder="Device Name" %}
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 col-md-12">
+                    <div class="form-group">
+                      <label class="form-label">Factory</label>
+                        {% render_field form.factory type="text" class="form-control" placeholder="Device Brand" %}
+                    </div>
+                  </div>
+
+                    <div class="col-sm-12 col-md-12">
+                    <div class="form-group">
+                      <label class="form-label">Model</label>
+                        {% render_field form.model class="form-control"  placeholder="model" %}
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 col-md-12">
+                    <div class="form-group">
+                      <label class="form-label">Wattage</label>
+                        {% render_field form.wattage type="number"  class="form-control" placeholder="Device Wattage"%}
+                    </div>
+                  </div>
+
+                    <div class="col-sm-12 col-md-12">
+                    <div class="form-group">
+                      <label class="form-label">Price</label>
+                        {% render_field form.price type="number"  class="form-control" placeholder="Price"%}
+                    </div>
+                  </div>
+
+                    <div class="col-sm-12 col-md-12">
+                    <div class="form-group">
+                      <label class="form-label">Category</label>
+                        {% render_field form.appliance_category type="text" class="form-control"  placeholder="appliance category"%}
+                    </div>
+                  </div>
+
+                    <div class="col-sm-12 col-md-12">
+                    <div class="form-group">
+                      <label class="form-label">Sub Category</label>
+                        {% render_field form.sub_category type="text"  class="form-control" placeholder="appliance sub category"%}
+                    </div>
+                  </div>
+
+                     <div class="col-sm-12 col-md-12">
+                    <div class="form-group">
+                      <label class="form-label">Seller</label>
+                        {% render_field form.seller type="text"  class="form-control" placeholder="seller"%}
+                    </div>
+                  </div>
+
+                    <div class="col-sm-12 col-md-12">
+                    <div class="form-group">
+                      <label class="form-label">Warranty</label>
+                        {% render_field form.warranty type="number"  class="form-control" placeholder="warranty term"%}
+                    </div>
+                  </div>
+
+
+
+
+                </div>
+              </div>
+              <div class="card-footer text-right">
+                <button class="btn btn-primary" type="submit">Add</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+{% endblock %}
