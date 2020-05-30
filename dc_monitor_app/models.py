@@ -55,24 +55,18 @@ class Bill(models.Model):
 class SmartMeters(models.Model):
     # to track data in real time times
     status = (
-        (1, "working"),
-        (0, "not_working")
+        (0, "OFF"),
+        (1, "ON")
     )
-    user = models.ForeignKey(Clint, on_delete=models.CASCADE, null=True)
+    user = models.ForeignKey(Clint, on_delete=models.CASCADE, null=True, blank=True)
     SER = models.CharField(max_length=10, unique=True, primary_key=True)
     device_status = models.PositiveSmallIntegerField(
         choices=status,
         default=0
     )
 
-    # type
-    # location
-    # conception = models.FloatField(default=0.0)
-    # balance = models.FloatField(default=0.0)
-    # conception_cost = models.FloatField(default=0.0)
-    # electrical_load = models.FloatField(default=0.0)
-    # price_category = models.IntegerField(default=1, validators=[MinValueValidator(1),
-    #                                                              MaxValueValidator(7)])
+    def get_status(self):
+        return self.status[self.device_status][1]
 
     def __str__(self):
         return "NO. %s" % self.SER
@@ -126,7 +120,6 @@ class Factory(models.Model):
         names = self.objects.all()
         return names
 
-
     def __str__(self):
         return "%s factory" % self.name
 
@@ -142,7 +135,7 @@ class Appliances(models.Model):
     price = models.FloatField(blank=False, null=False)
     warranty = models.FloatField(blank=True)
 
-    rate = models.IntegerField(default=0, validators=[MinValueValidator(1), MaxValueValidator(5)])
+    rate = models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(5)], blank=True)
     consumption_label = models.PositiveSmallIntegerField(blank=True, choices=consumption_labels)
     production_Year = models.PositiveSmallIntegerField(null=True, blank=True,
                                                        validators=[MinValueValidator(1999), MaxValueValidator(2100)])
@@ -154,9 +147,9 @@ class Appliances(models.Model):
 
     date_created = models.DateTimeField(auto_now_add=True, null=False)
 
-    seller = models.ManyToManyField(Seller)
+    seller = models.ManyToManyField(Seller, blank=True)
     appliance_category = models.ForeignKey(ApplianceCategory, null=True, on_delete=models.SET_NULL)
-    factory = models.ForeignKey(Factory, on_delete=models.CASCADE)
+    factory = models.ForeignKey(Factory, on_delete=models.CASCADE, blank=True )
 
     class Meta:
         ordering = ['appliance_category']

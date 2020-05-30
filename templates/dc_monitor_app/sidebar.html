@@ -10,8 +10,8 @@
 
               <li><a class="sidebar-header" href="#"><i data-feather="airplay"></i><span>Tools</span></a>
                 <ul class="sidebar-submenu">
-                  <li><a href="{% url 'add_device' %}">Add New Tool</a></li>
-                  <li><a href="{% url 'all_device' %}">View All Tools</a></li>
+                  <li><a href="{% url 'add_appliance_view' %}">Add New Tool</a></li>
+                  <li><a href="{% url 'all_appliance_view' %}">View All Tools</a></li>
                 </ul>
               </li>
               <li><a class="sidebar-header" href="#"><i data-feather="users"></i><span>Customers</span></i></a>
@@ -20,13 +20,27 @@
                 </ul>
               </li>
 
-              <li><a class="sidebar-header" href="#"><i data-feather="align-right"></i ><span>Devices</span></a>
+              <li>
+                  <a class="sidebar-header" href="#">
+                      <i data-feather="align-right"></i>
+                      <span>Devices</span></a>
                 <ul class="sidebar-submenu">
                   <li><a href="{% url 'add_appliance_view' %}">Add New Appliance</a></li>
                   <li><a href="{% url 'all_appliance_view' %}">View All Appliance</a></li>
                 </ul>
               </li>
-              <li><a class="sidebar-header" href="system.html"><i data-feather="database"></i ><span>System</span></a>
+
+                <li>
+                  <a class="sidebar-header" href="#">
+                      <i data-feather="align-right"></i>
+                      <span>Settings</span></a>
+                <ul class="sidebar-submenu">
+                  <li><a href="{% url 'profile' %}">Profile</a></li>
+                  <li><a href="{% url 'edit_profile' %}">Edit Profile</a></li>
+                    <li><a href="{% url 'change_password' %}">Change Password</a></li>
+                </ul>
+              </li>
+
               <li><a class="sidebar-header" href="{% url 'logout' %}" ><i data-feather="log-out"></i ><span>Logout</span></a>
               </li>
 

@@ -6,9 +6,7 @@
         <div class="row">
           <div class="col-lg-12">
             <h3>Devicies</h3>
-
           </div>
-
         </div>
       </div>
     </div>
@@ -34,10 +32,10 @@
                               <th scope="col">Model</th>
                               <th scope="col">Factory</th>
                               <th scope="col">Wattage</th>
-                              <th scope="col">Consumption Label</th>
+                              <th scope="col">Label</th>
                               <th scope="col">Price</th>
-                              <th scope="col">production Year</th>
-                              <th scope="col">Warranty term</th>
+                              <th scope="col">production</th>
+                              <th scope="col">Warranty</th>
                               <th scope="col">Rate</th>
                           </tr>
                         </thead>
@@ -80,7 +78,7 @@
                             </td>
 
                             <td>
-                                <a href="#"  class="badge badge-pill pill-badge-secondary btn btn-primary " style="font-size: 13px;">Edit</a>
+                                <a href="{% url 'edit_appliance_view' a.id %}"  class="badge badge-pill pill-badge-secondary btn btn-primary " style="font-size: 13px;">Edit</a>
                             </td>
                               <td>
                                 <a href="#"  class="badge badge-pill pill-badge-secondary btn btn-danger">delete</a>

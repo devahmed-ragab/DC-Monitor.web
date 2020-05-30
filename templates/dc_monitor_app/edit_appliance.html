@@ -1,0 +1,13 @@
+{% extends 'dc_monitor_app/add_appliance_page.html' %}
+{% block header %}
+    <h3>Edit</h3>
+{% endblock %}
+{% block form %}
+      <form  class="card form-group" method="POST" action="{% url 'all_appliance_view' %}" >
+{% endblock %}
+{% block header2 %}
+    <h4 class="card-title mb-0 form-group">Edit Device</h4>
+{% endblock %}
+{% block button %}
+    <button class="btn btn-primary form-group" type="submit">Edit</button>
+{% endblock %}

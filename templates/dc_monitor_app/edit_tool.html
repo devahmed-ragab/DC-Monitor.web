@@ -1,0 +1,10 @@
+{% extends 'dc_monitor_app/add_tool_page.html' %}
+{% block header %}
+     <h4 class="card-title mb-0">Edit Tool </h4>
+{% endblock %}
+{% block form_action %}
+    <form class="card" method="POST" action="{% url 'all_device' %}" >
+{% endblock %}
+{% block button %}
+    <button class="btn btn-primary" type="submit">Edit</button>
+{% endblock %}

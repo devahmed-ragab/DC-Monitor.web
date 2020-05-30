@@ -22,10 +22,14 @@
       <div class="edit-profile">
         <div class="row">
           <div class="col-lg-12">
-            <form class="card" method="POST">
+          {% block form_action %}
+            <form class="card" method="POST" >
+            {% endblock %}
                 {% csrf_token %}
               <div class="card-header">
+                  {% block header %}
                 <h4 class="card-title mb-0">Add New Tool</h4>
+                      {% endblock %}
                 <div class="card-options"><a class="card-options-collapse" href="#" data-toggle="card-collapse">
                     <i class="fe fe-chevron-up"></i></a><a class="card-options-remove" href="#" data-toggle="card-remove">
                     <i class="fe fe-x"></i></a></div>
@@ -36,13 +40,14 @@
                     <div class="form-group">
                       <label for= "SER" class="form-label">Serial Number</label>
                          {% render_field form.SER  minlength="10" maxlength="10"  placeholder="Serianl Number"   class="form-control" id="SER" name="SER" %}
-{#                      <input class="form-control" type="text" placeholder="Serianl Number">#}
                     </div>
                   </div>
                 </div>
               </div>
               <div class="card-footer text-right">
+                  {% block button %}
                 <button class="btn btn-primary" type="submit">Add</button>
+                      {% endblock %}
               </div>
 
             </form>

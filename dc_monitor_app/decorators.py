@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 
 
 def unauthenticated_user(view_func):
@@ -32,8 +32,7 @@ def allowed_groups(groups=[]):
             if group in groups:
                 return view_func(request, *args, **kwargs)
             else:
-                return HttpResponse('you are not allowed')
-
+                return HttpResponse('YOU ARE NOT Allowed')
         return wrapper_func
 
     return decorator

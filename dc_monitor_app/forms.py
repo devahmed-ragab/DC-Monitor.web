@@ -1,11 +1,11 @@
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.core.validators import RegexValidator
 from django.contrib.auth.models import User
-from django.forms import ModelForm,  Select
+from django.forms import ModelForm, Select
 from .models import *
 
 
-class CreateClintForm(UserCreationForm):
+class CreateUserForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
@@ -27,4 +27,10 @@ class AddApplianceForm(ModelForm):
             'seller': Select(),
         }
         fields = ['appliance_category', 'consumption_label', 'model', 'name',
-                  'wattage', 'factory', 'price', 'seller', 'sub_category','warranty']
+                  'wattage', 'factory', 'price', 'seller', 'sub_category', 'warranty']
+
+
+class CreateClintForm(ModelForm):
+    class Meta:
+        model = Clint
+        fields = ['prof_image', 'location', 'phone_number']

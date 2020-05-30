@@ -8,7 +8,9 @@
       <div class="page-header">
         <div class="row">
           <div class="col-lg-12">
+               {% block header %}
             <h3>Devicies</h3>
+                   {% endblock %}
 
           </div>
 
@@ -20,10 +22,14 @@
       <div class="edit-profile">
         <div class="row">
           <div class="col-lg-12">
+           {% block form %}
             <form class="card" method="POST">
+            {% endblock %}
                 {% csrf_token %}
               <div class="card-header">
+                  {% block header2 %}
                 <h4 class="card-title mb-0">Add New Device</h4>
+                      {% endblock %}
                 <div class="card-options"><a class="card-options-collapse" href="#" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
                     <a class="card-options-remove" href="#" data-toggle="card-remove"><i class="fe fe-x"></i></a></div>
               </div>
@@ -99,7 +105,9 @@
                 </div>
               </div>
               <div class="card-footer text-right">
+                  {% block button %}
                 <button class="btn btn-primary" type="submit">Add</button>
+                      {% endblock %}
               </div>
             </form>
           </div>

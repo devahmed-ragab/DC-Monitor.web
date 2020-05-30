@@ -5,34 +5,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef8ca716-dfe7-4fd8-8352-3293d013ce0e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dc_monitor_app/migrations/0002_auto_20200430_0441.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dc_monitor_app/migrations/0003_auto_20200430_0441.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dc_monitor_app/migrations/0004_auto_20200430_1006.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dc_monitor_app/migrations/0005_auto_20200430_1024.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dc_monitor_app/add_appliance_page.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dc_monitor_app/all_appliance_page.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dc_monitor_app/all_tools_page.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dc_monitor_app/customer_form_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/bg-profile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/dc_monitor_app/change_password_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/dc_monitor_app/delet_item.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/dc_monitor_app/edit_appliance.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/dc_monitor_app/edit_clint.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/dc_monitor_app/edit_tool.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/dc_monitor_app/edith_profile_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/dc_monitor_app/profile_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/apple.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/apple.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dc_monitor_app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dc_monitor_app/decorators.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/decorators.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dc_monitor_app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dc_monitor_app/junkData.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/junkData.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dc_monitor_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dc_monitor_app/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/url.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dc_monitor_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/add_appliance_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/add_appliance_page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/add_tool_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/add_tool_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/login_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/login_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/all_appliance_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/all_appliance_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/all_tools_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/all_tools_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/customer_form_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/customer_form_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/err404Page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/err404Page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/information_bar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/information_bar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/sidebar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/user_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/user_page.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
@@ -56,18 +71,19 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/static/images" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/static/images" />
-      <recent name="$PROJECT_DIR$/static/images/dashboard" />
-      <recent name="$PROJECT_DIR$/static/images/" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/static/images" />
       <recent name="$PROJECT_DIR$/static/js" />
       <recent name="$PROJECT_DIR$/static/css" />
       <recent name="$PROJECT_DIR$/static" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/images" />
+      <recent name="$PROJECT_DIR$/static/images/dashboard" />
+      <recent name="$PROJECT_DIR$/static/images/" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -129,7 +145,13 @@
       <workItem from="1587997519246" duration="329000" />
       <workItem from="1588045267419" duration="13383000" />
       <workItem from="1588125818477" duration="10969000" />
-      <workItem from="1588214961515" duration="25890000" />
+      <workItem from="1588214961515" duration="26397000" />
+      <workItem from="1588299306423" duration="13494000" />
+      <workItem from="1588389435795" duration="13342000" />
+      <workItem from="1589226567559" duration="1352000" />
+      <workItem from="1589317294011" duration="474000" />
+      <workItem from="1590546625050" duration="146000" />
+      <workItem from="1590817809201" duration="488000" />
     </task>
     <servers />
   </component>
