@@ -1,5 +1,6 @@
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
+from django.urls import reverse
 from django.contrib.auth.models import User
 
 
@@ -7,21 +8,32 @@ from django.contrib.auth.models import User
 class Clint(models.Model):
     # CASCADE means when user deleted delete that relation
     # todo add time to modify last seen
-    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
-    first_name = models.CharField(max_length=60)
-    second_name = models.CharField(max_length=60)
     email = models.CharField(max_length=150, null=True)
-    prof_image = models.ImageField(null=True, blank=True, default="default-profile.png")
-    date_created = models.DateTimeField(auto_now_add=True, null=False)
     location = models.CharField(max_length=100, null=True, blank=True)
+    date_created = models.DateTimeField(auto_now_add=True, null=False)
     phone_number = models.IntegerField(null=True, unique=True, blank=True)
+    prof_image = models.ImageField(null=True, blank=True, default="default-profile.png")
+
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
 
     @property
     def full_name(self):
-        return '%s %s' % (self.first_name, self.second_name)
+        return '%s %s' % (self.user.first_name, self.user.last_name)
+
+    def get_absolute_url(self):
+        return f"{self.id}/"
+
+    def get_back_form(self):
+        return reverse('all_customers_view', kwargs={})
 
     def __str__(self):
-        return "%s %s" % (self.first_name, self.second_name)
+        return "%s %s" % (self.user.first_name, self.user.last_name)
+
+    # def get_absolute_url(self):
+    #     return f"user/{self.id}"
+
+    # def get_absolute_url(self):
+    #     return reverse("view.name", kwargs={"id": self.id})
 
 
 class Bill(models.Model):
@@ -68,6 +80,12 @@ class SmartMeters(models.Model):
     def get_status(self):
         return self.status[self.device_status][1]
 
+    def get_absolute_url(self, ):
+        return reverse('edit_meter', kwargs={'SER': self.SER})
+
+    def get_back_form(self):
+        return reverse('all_meters', kwargs={})
+
     def __str__(self):
         return "NO. %s" % self.SER
 
@@ -95,7 +113,10 @@ class ApplianceCategory(models.Model):
         ('Water Treatment Appliances', 'Water Treatment Appliances'),
         ('Others', 'Others')
     ]
-    category = models.CharField(max_length=40, null=True, choices=categ_name)
+    category = models.CharField(max_length=40, null=True, choices=categ_name, unique=True)
+
+    def get_absolute_url(self):
+        return f"all_appliance/{self.id}"
 
     def __str__(self):
         return self.category
@@ -136,20 +157,20 @@ class Appliances(models.Model):
     warranty = models.FloatField(blank=True)
 
     rate = models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(5)], blank=True)
-    consumption_label = models.PositiveSmallIntegerField(blank=True, choices=consumption_labels)
+    consumption_label = models.PositiveSmallIntegerField(blank=True, choices=consumption_labels, null=True)
     production_Year = models.PositiveSmallIntegerField(null=True, blank=True,
                                                        validators=[MinValueValidator(1999), MaxValueValidator(2100)])
-    wattage = models.FloatField(blank=True)
+    wattage = models.FloatField(blank=True, null=True)
 
-    wight = models.FloatField(blank=True)
-    height = models.FloatField(blank=True)
-    depth = models.FloatField(blank=True)
+    wight = models.FloatField(blank=True, null=True)
+    height = models.FloatField(blank=True, null=True)
+    depth = models.FloatField(blank=True, null=True)
 
     date_created = models.DateTimeField(auto_now_add=True, null=False)
 
     seller = models.ManyToManyField(Seller, blank=True)
     appliance_category = models.ForeignKey(ApplianceCategory, null=True, on_delete=models.SET_NULL)
-    factory = models.ForeignKey(Factory, on_delete=models.CASCADE, blank=True )
+    factory = models.ForeignKey(Factory, on_delete=models.CASCADE, blank=True)
 
     class Meta:
         ordering = ['appliance_category']

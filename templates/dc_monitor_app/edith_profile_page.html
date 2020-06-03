@@ -11,7 +11,6 @@
                             <li class="breadcrumb-item active">{{ groups.first }} Profile</li>
                         </ol>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -20,7 +19,8 @@
             <div class="edit-profile">
                 <div class="row">
                     <div class="col-lg-12">
-                        <form class="card" method="POST">
+                        {% block form %}
+                        <form class="card" method="POST" enctype="multipart/form-data">
                             {% csrf_token %}
                             <div class="card-header">
                                 <h4 class="card-title mb-0">Edit Profile</h4>
@@ -73,17 +73,22 @@
                                     <div class="col-sm-12 col-md-12">
                                         <div class="form-group">
                                             <label class="form-label">Address</label>
-                                            {% render_field clint_form.location class="form-control" type="text" placeholder="Email" %}
+                                            {% render_field clint_form.location  type="text" placeholder="Email" %}
                                         </div>
                                     </div>
-
-
-
 
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="form-label">Image</label>
-                                            {% render_field clint_form.prof_image class="btn btn-primary btn-lg btn-block" type="file" class="form-control"%}
+                                           {% render_field clint_form.prof_image%}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="form-label">{{ clint_form.errors }}</label>
+                                            <label class="form-label">{{ user_form.errors }}</label>
+
+
                                         </div>
                                     </div>
 
@@ -94,6 +99,7 @@
                                 <button class="btn btn-primary" type="submit">Update Profile</button>
                             </div>
                         </form>
+                            {% endblock %}
                     </div>
                 </div>
             </div>

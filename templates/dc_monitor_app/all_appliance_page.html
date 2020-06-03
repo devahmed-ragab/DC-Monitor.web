@@ -81,7 +81,7 @@
                                 <a href="{% url 'edit_appliance_view' a.id %}"  class="badge badge-pill pill-badge-secondary btn btn-primary " style="font-size: 13px;">Edit</a>
                             </td>
                               <td>
-                                <a href="#"  class="badge badge-pill pill-badge-secondary btn btn-danger">delete</a>
+                                <a href="{% url 'delete_appliance' a.id %}" class="badge badge-pill pill-badge-secondary btn btn-danger">delete</a>
                             </td>
                           </tr>
                         {% endfor %}

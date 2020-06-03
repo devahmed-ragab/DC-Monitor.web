@@ -2,7 +2,9 @@
 <div class="page-main-header">
         <div class="main-header-right row">
           <div class="main-header-left d-lg-none">
-            <div class="logo-wrapper"><a href="{% url 'dashboard_view' %}"><img src="{% static 'images/logo1.png' %}" alt="user_image"></a></div>
+            <div class="logo-wrapper">
+                <a href="{% url 'dashboard_view' %}">
+                    <img src="{% static 'images/logo1.png' %}" alt="user_image"></a></div>
           </div>
           <div class="mobile-sidebar d-block">
             <div class="media-body text-right switch-sm">
@@ -25,8 +27,8 @@
                           <img class="mr-2 rounded-circle img-35" src="{{ request.user.clint.prof_image.url }}"  height="35" width="35" >
                       <span class="media-body">
                       <span class="f-12 f-w-600">
-                      </span>{{ request.user.first_name }}
-                          <span class="d-block">{{ request.user.username }}</span>
+                      </span>{{ request.user.clint.full_name }}
+                          <span class="d-block">{{ request.user.groups.get }}</span>
                       </span>
                   </span>
                   </button>

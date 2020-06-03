@@ -26,7 +26,7 @@
             <div class="card hovercard text-center">
               <div class="cardheader"></div>
               <div class="user-image">
-                <div class="avatar"><img alt="" src="{{ request.user.clint.prof_image.url }}"></div>
+                <div class="avatar"><img alt="" src="{{ user.clint.prof_image.url }}"></div>
               </div>
               <div class="info">
                 <div class="row">
@@ -34,12 +34,13 @@
                     <div class="row">
                       <div class="col-md-8">
                         <div class="ttl-info text-left">
-                          <h6>Email</h6><span>{{request.user.email}}</span>
+                          <h6>Email</h6><span>{{user.email}}</span>
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="ttl-info text-left">
-                          <h6>   Phone Number</h6><span>{{request.user.clint.phone_number}}</span>
+
+                          <h6>Phone Number</h6><span>{{user.clint.phone_number}}</span>
                         </div>
                       </div>
                     </div>
@@ -47,14 +48,17 @@
                   <div class="col-sm-12 col-lg-4 order-sm-0 order-xl-1">
                     <div class="user-designation">
                       <div class="title"><a target="_blank" href="#">{{request.user.clint.full_name}}</a></div>
-                      <div class="desc mt-2">vistor</div>
+                      <div class="desc mt-2">{{  user.groups.get }}</div>
                     </div>
                   </div>
                   <div class="col-sm-6 col-lg-4 order-sm-2 order-xl-2">
                     <div class="row">
                       <div class="col-md-6">
                         <div class="ttl-info text-left">
-                          <h6>Adress </h6><span>Egypt</span>
+                          <h6>Devices </h6>
+                            {% for d in devices %}
+                            <span>{{d}}</span>
+                            {% endfor %}
                         </div>
                       </div>
 

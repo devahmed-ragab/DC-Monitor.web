@@ -1,0 +1,64 @@
+{% extends 'dc_monitor_app/edith_profile_page.html' %}
+{% load widget_tweaks %}
+{% block form %}
+<form class="card" method="POST">
+    {% csrf_token %}
+    <div class="card-header">
+        <h4 class="card-title mb-0">Edit Customer {{ user.username }}</h4>
+        <div class="card-options"><a class="card-options-collapse" href="#" data-toggle="card-collapse">
+                <i class="fe fe-chevron-up"></i></a>
+            <a class="card-options-remove" href="#" data-toggle="card-remove">
+                <i class="fe fe-x"></i></a>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <div class="form-group">
+                    <label class="form-label">User name</label>
+                    {% render_field user_form.username class="form-control" type="text" placeholder="Username" %}
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12">
+                <div class="form-group">
+                    <label class="form-label">First Name</label>
+                    {% render_field user_form.first_name class="form-control" type="text" placeholder="Firstname" %}
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12">
+                <div class="form-group">
+                    <label class="form-label">Second Name</label>
+                    {% render_field user_form.last_name class="form-control" type="text" placeholder="Second Name" %}
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12">
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    {% render_field user_form.email class="form-control" type="email" placeholder="Examplee@domain.com" %}
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12">
+                <div class="form-group">
+                    <label class="form-label">Phone Number</label>
+                    {% render_field phone_form.phone_number class="form-control" type="rel" placeholder="01*********"  %}
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12">
+                <div class="form-group">
+                    <label class="form-label">Permissions Group</label>
+                    {% render_field user_form.groups  class="form-control" %}
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12">
+                <div class="form-group">
+                    <label class="form-label">Devices</label>
+                    {% render_field device_form.SER class="form-control" type="number" placeholder="SER" %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer text-right">
+        <button class="btn btn-primary" type="submit">Update</button>
+    </div>
+</form>
+{% endblock %}

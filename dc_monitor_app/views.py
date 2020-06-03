@@ -1,14 +1,13 @@
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth import update_session_auth_hash
-from django.shortcuts import render, redirect
-from django.contrib.auth.models import Group
-from .forms import *
-from django.contrib import messages
-from .decorators import *
-from .models import Clint
-
 from datetime import date, timedelta
+
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import Group
+from .decorators import *
+from .forms import *
+from .models import Clint
 
 
 def percentage(on_devices, all_devices):
@@ -53,7 +52,7 @@ def registration_view(request):
 
             Clint.objects.create(
                 user=registration_user,
-                first_name=form.cleaned_data.get('first_name')
+
             )
 
             messages.success(request, 'Account successfully created ' + user_name)
@@ -111,9 +110,10 @@ def user_dashboard_view(request):
     return render(request, 'dc_monitor_app/user_page.html', context)
 
 
+# meter
 @login_required(login_url='login_view')
 @allowed_groups(groups=['superadmin'])
-def add_smartmeter_view(request):
+def add_meter_view(request):
     form = AddDeviceForm()
     if request.method == 'POST':
         form = AddDeviceForm(request.POST)
@@ -128,7 +128,7 @@ def add_smartmeter_view(request):
 
 @login_required(login_url='login_view')
 @allowed_groups(groups=['superadmin'])
-def all_devices_view(request):
+def all_meters_view(request):
     devices = SmartMeters.objects.all()
     counter = 0
     context = {
@@ -138,17 +138,62 @@ def all_devices_view(request):
     return render(request, 'dc_monitor_app/all_tools_page.html', context)
 
 
+# customer
 @login_required(login_url='login_view')
 @allowed_groups(groups=['superadmin'])
 def all_customers_view(request):
     # group = Group.objects.get(name='user')
     # users = group.user_set.all()
     users = User.objects.filter(groups__name='user')
-
+    print(f"all users : {users}")
     context = {
         'users': users
     }
     return render(request, 'dc_monitor_app/customer_form_page.html', context)
+
+
+@login_required(login_url='login_view')
+@allowed_groups(groups=['superadmin'])
+def delete_customers_view(request, id):
+    customer = Clint.objects.get(id=id)
+    user = customer.user
+    if request.method == 'POST':
+        user.delete()
+        print('customer has been deleted successfully.')
+        return redirect('all_customers_view')
+    context = {'item': customer}
+    print(f"Customers  data : {customer}")
+    return render(request, 'dc_monitor_app/delet_item.html', context)
+
+
+@login_required(login_url='login_view')
+@allowed_groups(groups=['superadmin'])
+def edit_customers_view(request, id):
+    customer = Clint.objects.get(id=id)
+    user = customer.user
+    devices = customer.smartmeters_set.first()
+    print(devices)
+    phone_form = EditCustomerPhoneForm(instance=customer)
+    user_form = EditCustomerUserForm(instance=user)
+    device_form = AddDeviceForm(instance=devices)
+
+    if request.method == 'POST':
+        phone_form = EditCustomerPhoneForm(request.POST, instance=customer)
+        user_form = EditCustomerUserForm(request.POST, instance=user)
+        device_form = AddDeviceForm(request.POST, instance=devices)
+        if user_form.is_valid and phone_form.is_valid and device_form.is_valid:
+            user_form.save()
+            phone_form.save()
+            print(f'customer {user.first_name} has been updated.')
+            return redirect(all_customers_view)
+
+    context = {
+        'phone_form': phone_form,
+        'user_form': user_form,
+        'device_form': device_form,
+        'user': user
+    }
+    return render(request, 'dc_monitor_app/eedit_customer_page.html', context)
 
 
 @login_required(login_url='login_view')
@@ -164,12 +209,17 @@ def all_appliance_view(request):
 @login_required(login_url='login_view')
 @allowed_groups(groups=['superadmin'])
 def add_appliance_view(request):
+    print("add appliancee ..... ")
     form = AddApplianceForm()
-    if request.method == 'POST':
+    if request.method == "POST":
+        print("posting data .. ")
         form = AddApplianceForm(request.POST)
+        print(request.POST)
         if form.is_valid():
             print("saving form ....")
             form.save()
+            messages.success(request, 'New Appliance has been added successfully.')
+            form = AddApplianceForm()
     context = {
         'form': form
     }
@@ -179,63 +229,52 @@ def add_appliance_view(request):
 @login_required(login_url='login_view')
 def edit_profile_view(request):
     # groups = request.user.groups.all()
-    user = User.objects.get(id=request.user.id)
+    user = request.user
     clint = user.clint
     groups = user.groups.all()
-    user_form = CreateUserForm(instance=user)
+    user_form = EditUserForm(instance=user)
     clint_form = CreateClintForm(instance=clint)
     if request.method == 'POST':
-        user_form = CreateUserForm(request.POST, instance=user)
-        clint_form = CreateClintForm(request.POST, instance=clint)
+        print(f"posting data   clint {request.method}")
+        user_form = EditUserForm(request.POST, instance=user)
+        clint_form = CreateClintForm(request.POST, request.FILES, instance=clint)
         if user_form.is_valid() and clint_form.is_valid():
             print('user and clint has been saved')
             user_form.save()
             clint_form.save()
+            return redirect('profile')
 
     context = {
         'user_form': user_form,
         'clint_form': clint_form,
         'groups': groups
     }
+    print(context)
 
     return render(request, 'dc_monitor_app/edith_profile_page.html', context)
 
 
 @login_required(login_url='login_view')
+@allowed_groups(groups=['superadmin'])
 def profile_view(request):
-    context = {}
+    user = request.user
+    devices = user.clint.smartmeters_set.all() if user.clint.smartmeters_set.all() else "Empty"
+    context = {"user": user, "devices": devices}
     return render(request, 'dc_monitor_app/profile_page.html', context)
 
 
 @login_required(login_url='login_view')
-def change_password(request):
-    if request.method == 'POST':
-        form = PasswordChangeForm(request.user, request.POST)
-        if form.is_valid():
-            user = form.save()
-            # Important! this keeps the user login in
-            update_session_auth_hash(request, user)
-            messages.success(request, 'Your password was successfully updated!')
-            return redirect('change_password')
-        else:
-            messages.error(request, 'Please correct the error below.')
-    else:
-        form = PasswordChangeForm(request.user)
-    return render(request, 'dc_monitor_app/change_password_page.html', {
-        'form': form
-    })
-
-
-def edit_tool(request, SER):
+def edit_meter(request, SER):
     print("editing tool")
     tool = SmartMeters.objects.get(SER=SER)
     form = AddDeviceForm(instance=tool)
     if request.method == 'POST':
-        print("post editing tool", request.POST)
+        print("post data >> ", request.POST)
         form = AddDeviceForm(request.POST, instance=tool)
         if form.is_valid():
             form.save()
-            print("SER update")
+            print("SER updated")
+            return redirect('all_meters')
         else:
             messages.error(request, 'SER is not valid')
     context = {
@@ -244,14 +283,15 @@ def edit_tool(request, SER):
     return render(request, 'dc_monitor_app/edit_tool.html', context)
 
 
-def delete_tool(request, SER):
+@login_required(login_url='login_view')
+def delete_meter(request, SER):
     device = SmartMeters.objects.get(SER=SER)
     if request.method == 'POST':
         device.delete()
-        return redirect('all_device')
+        return redirect('all_meters')
 
     context = {
-        'device': device
+        'item': device
     }
     return render(request, 'dc_monitor_app/delet_item.html', context)
 
@@ -275,3 +315,35 @@ def edit_appliance_view(request, id):
         'form': form
     }
     return render(request, 'dc_monitor_app/edit_appliance.html', context)
+
+
+@login_required(login_url='login_view')
+def delete_appliance_view(request, id):
+    device = Appliances.objects.get(id=id)
+    if request.method == 'POST':
+        device.delete()
+        return redirect('all_appliance_view')
+
+    context = {
+        'item': device
+    }
+    return render(request, 'dc_monitor_app/delet_item.html', context)
+
+
+@login_required(login_url='login_view')
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            # Important! this keeps the user login in
+            update_session_auth_hash(request, user)
+            messages.success(request, 'Your password was successfully updated!')
+            return redirect('change_password')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        form = PasswordChangeForm(request.user)
+    return render(request, 'dc_monitor_app/change_password_page.html', {
+        'form': form
+    })

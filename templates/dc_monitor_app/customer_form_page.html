@@ -39,10 +39,8 @@
                           <tr>
                             <td>{{ forloop.counter }}</td>
                             <td>
-                                {% for n in user.clint.smartmeters_set.all  %}
-
-                                  <h6 class="f-w-600">{{ n }}</h6><br>
-
+                                {% for smartmeter in user.clint.smartmeters_set.all %}
+                                  <h6 class="f-w-600">{{ smartmeter }}</h6><br>
                                  {% endfor %}
                             </td>
                             <td>
@@ -54,17 +52,15 @@
                             </td>
 
                             <td>
-                                <h6 class="f-w-600">01112891913</h6>
-                            </td>
-
-                            <td>
-                                <a href=""  class="badge badge-pill pill-badge-secondary btn btn-danger">delete</a>
+                                <h6 class="f-w-600">{{ user.clint.phone_number }}</h6>
                             </td>
                           <td>
-                              <a href="{% url 'edit_clint' user.id %}"
-                                                       class="badge badge-pill pill-badge-secondary btn btn-primary "
-                                                       style="font-size: 13px;">Edit</a>
+                              <a href="{{ user.clint.get_absolute_url }}edit"
+                                 class="badge badge-pill pill-badge-secondary btn btn-primary " style="font-size: 13px;">Edit</a>
                           </td>
+                          <td>
+                                <a href="{{ user.clint.get_absolute_url }}delete"  class="badge badge-pill pill-badge-secondary btn btn-danger">delete</a>
+                            </td>
                           </tr>
                         {% endfor %}
                         </tbody>

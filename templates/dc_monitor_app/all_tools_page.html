@@ -44,10 +44,10 @@
                                                 <td><h6 class="f-w-600">{{ device.get_status }}</h6></td>
 
                                                 <td>
-                                                    <a href="{% url 'edit_tool' device.SER %}"
+                                                    <a href="{{ device.get_absolute_url }}"
                                                        class="badge badge-pill pill-badge-secondary btn btn-primary "
                                                        style="font-size: 13px;">Edit</a>
-                                                    <a href="{% url 'delete_tool' device.SER %}" class="badge badge-pill pill-badge-secondary btn btn-danger">delete</a>
+                                                    <a href="{{ device.get_absolute_url }}delete" class="badge badge-pill pill-badge-secondary btn btn-danger">delete</a>
                                                 </td>
 
                                             </tr>

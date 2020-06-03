@@ -63,6 +63,12 @@
                         {% render_field form.wattage type="number"  class="form-control" placeholder="Device Wattage"%}
                     </div>
                   </div>
+                    <div class="col-sm-12 col-md-12">
+                        <div class="form-group">
+                          <label class="form-label">consumption_label</label>
+                            {% render_field form.consumption_label   class="form-control" placeholder="Device Wattage"%}
+                        </div>
+                      </div>
 
                     <div class="col-sm-12 col-md-12">
                     <div class="form-group">
@@ -74,7 +80,7 @@
                     <div class="col-sm-12 col-md-12">
                     <div class="form-group">
                       <label class="form-label">Category</label>
-                        {% render_field form.appliance_category type="text" class="form-control"  placeholder="appliance category"%}
+                        {% render_field form.appliance_category  class="form-control"  placeholder="appliance category"%}
                     </div>
                   </div>
 
@@ -99,16 +105,23 @@
                     </div>
                   </div>
 
-
-
-
+                    {% if form.errors %}
+                    <div class="col-sm-12 col-md-12">
+                    <div class="form-group">
+                      <div class="alert alert-primary" >{{ form.errors }}</div>
+                    </div>
+                  </div>
+          {% endif %}
                 </div>
               </div>
+
               <div class="card-footer text-right">
                   {% block button %}
                 <button class="btn btn-primary" type="submit">Add</button>
                       {% endblock %}
               </div>
+
+
             </form>
           </div>
         </div>
