@@ -11,6 +11,12 @@ class CreateUserForm(UserCreationForm):
         model = User
         fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
 
+    # def clean_terms_approval(self):
+    #     terms_approval = self.cleaned_data.get('terms_approval')
+    #     if terms_approval is not True:
+    #         raise forms.ValidationError("You must  Agree to Terms and conditions.")
+    #     return terms_approval
+
 
 class EditUserForm(ModelForm):
     class Meta:
@@ -60,3 +66,4 @@ class EditCustomerPhoneForm(ModelForm):
     class Meta:
         model = Clint
         fields = ['phone_number']
+

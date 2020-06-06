@@ -22,9 +22,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ey_rjczu3-4coy897+di=577%7nov$r*f#@v345kyb0x9k7msr'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'dcmonitor-dcm.herokuapp',
+    '172.0.0.1'
+]
 
 # Application definition
 

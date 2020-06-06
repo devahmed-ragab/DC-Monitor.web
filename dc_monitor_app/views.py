@@ -1,9 +1,9 @@
 from datetime import date, timedelta
-
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import Group
 from .decorators import *
 from .forms import *
@@ -42,7 +42,8 @@ def registration_view(request):
     form = CreateUserForm()
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
-        if form.is_valid():
+        terms = request.POST.get('check')
+        if form.is_valid() and terms:
             print(" request valid :")
             registration_user = form.save()
             user_name = form.cleaned_data.get('username')
@@ -169,7 +170,7 @@ def delete_customers_view(request, id):
 @login_required(login_url='login_view')
 @allowed_groups(groups=['superadmin'])
 def edit_customers_view(request, id):
-    customer = Clint.objects.get(id=id)
+    customer = get_object_or_404(Clint, id=id)
     user = customer.user
     devices = customer.smartmeters_set.first()
     print(devices)
