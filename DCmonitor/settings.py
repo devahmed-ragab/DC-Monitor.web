@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'django_icons',
 ]
-
+git
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
