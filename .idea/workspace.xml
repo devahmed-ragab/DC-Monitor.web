@@ -7,7 +7,6 @@
     <list default="true" id="ef8ca716-dfe7-4fd8-8352-3293d013ce0e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DCmonitor/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DCmonitor/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.text" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -142,7 +141,7 @@
       <workItem from="1591208501048" duration="479000" />
       <workItem from="1591293720332" duration="6465000" />
       <workItem from="1591326711109" duration="2744000" />
-      <workItem from="1591417185798" duration="3797000" />
+      <workItem from="1591417185798" duration="3983000" />
     </task>
     <servers />
   </component>
