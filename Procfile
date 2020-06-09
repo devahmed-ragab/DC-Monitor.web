@@ -1,1 +1,1 @@
-web: gunicorn DCmonitor..wsgi --log-file -
+web: gunicorn DCmonitor.wsgi --log-file -
