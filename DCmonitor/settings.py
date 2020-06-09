@@ -23,11 +23,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 SECRET_KEY = 'ey_rjczu3-4coy897+di=577%7nov$r*f#@v345kyb0x9k7msr'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'dcmonitor-dcm.herokuapp',
-    '172.0.0.1'
+    '127.0.0.1'
 ]
 
 # Application definition
@@ -45,9 +45,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
