@@ -12006,7 +12006,7 @@ table.dataTable.display tbody tr.odd > .sorting_1 {
   overflow: hidden; }
   .bg-sky-blue .main-landing {
     height: 100vh;
-    background-image: url(../images/landing/bg-landing.png);
+    /*background-image: url(../images/landing/bg-landing.png);*/
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
