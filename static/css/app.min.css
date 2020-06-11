@@ -259,7 +259,7 @@ body[data-layout=horizontal] .navbar-brand-box {
     padding: 24px 12px 65px 12px;
     background-color: #3051d3;
     margin: 0 -12px;
-    /*background-image: url(../images/bg-pattern.png);*/
+    background-image: url(../images/bg-pattern.png);
     background-size: cover
 }
 
