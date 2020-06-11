@@ -5,8 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef8ca716-dfe7-4fd8-8352-3293d013ce0e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/static/images/icon-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/js-grid.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/lightgallry/01.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/lightgallry/010.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/lightgallry/011.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/lightgallry/012.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/lightgallry/013.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/lightgallry/014.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/lightgallry/015.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/lightgallry/016.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/lightgallry/02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/lightgallry/03.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/lightgallry/04.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/lightgallry/05.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/lightgallry/06.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/lightgallry/07.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/lightgallry/08.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/lightgallry/09.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/lightgallry/default-skin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/sprite-skin-modern.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/tree/32px.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/tree/40px.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/tree/throbber.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DCmonitor/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DCmonitor/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/aos.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/range-slider.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/range-slider.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,16 +80,17 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/static/images" />
-      <recent name="$PROJECT_DIR$/static/images/dashboard" />
-      <recent name="$PROJECT_DIR$/static/images/" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/static/images" />
       <recent name="$PROJECT_DIR$/static/js" />
       <recent name="$PROJECT_DIR$/static/css" />
       <recent name="$PROJECT_DIR$/static" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/images" />
+      <recent name="$PROJECT_DIR$/static/css" />
+      <recent name="$PROJECT_DIR$/static/images/dashboard" />
+      <recent name="$PROJECT_DIR$/static/images/" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -144,7 +169,7 @@
       <workItem from="1591417185798" duration="4254000" />
       <workItem from="1591657549897" duration="4140000" />
       <workItem from="1591705430828" duration="1346000" />
-      <workItem from="1591862171919" duration="722000" />
+      <workItem from="1591862171919" duration="2663000" />
     </task>
     <servers />
   </component>
