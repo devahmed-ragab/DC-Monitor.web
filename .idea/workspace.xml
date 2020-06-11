@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef8ca716-dfe7-4fd8-8352-3293d013ce0e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/images/creative-logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/creative-logo1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/details_close.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/details_open.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/sort_asc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/sort_asc_disabled.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/sort_both.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/sort_desc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/sort_desc_disabled.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/app.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/app.min.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -154,7 +145,7 @@
       <workItem from="1591417185798" duration="4254000" />
       <workItem from="1591657549897" duration="4140000" />
       <workItem from="1591705430828" duration="1346000" />
-      <workItem from="1591862171919" duration="3977000" />
+      <workItem from="1591862171919" duration="6611000" />
     </task>
     <servers />
   </component>
