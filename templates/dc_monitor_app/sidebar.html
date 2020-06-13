@@ -5,15 +5,26 @@
             <div class="logo-wrapper"><a href=""><img src="{% static 'images/logo.png' %}" alt="logo"></a></div>
           </div>
           <div class="sidebar custom-scrollbar">
-            <ul class="sidebar-menu">
-              <li ><a href="{% url 'dashboard_view' %}" class="sidebar-header" ><i data-feather="home"></i><span>Dashboard</span></a></li>
 
-              <li><a class="sidebar-header" href="#"><i data-feather="airplay"></i><span>Tools</span></a>
+            <ul class="sidebar-menu">
+              <li >
+                  <a href="{% url 'dashboard_view' %}" class="sidebar-header" >
+                      <i data-feather="home"></i>
+                      <span>Dashboard</span>
+                  </a>
+              </li>
+
+                 <li>
+                  <a class="sidebar-header" href="#">
+                      <i data-feather="align-right"></i>
+                      <span>Devices</span></a>
                 <ul class="sidebar-submenu">
                   <li><a href="{% url 'add_meter' %}">Add New Tool</a></li>
                   <li><a href="{% url 'all_meters' %}">View All Tools</a></li>
                 </ul>
               </li>
+
+
               <li><a class="sidebar-header" href="#"><i data-feather="users"></i><span>Customers</span></i></a>
                 <ul class="sidebar-submenu">
                   <li><a href="{% url 'all_customers_view' %}">View All Customers</a></li>

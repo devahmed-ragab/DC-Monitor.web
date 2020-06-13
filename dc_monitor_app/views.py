@@ -139,6 +139,27 @@ def all_meters_view(request):
     return render(request, 'dc_monitor_app/all_tools_page.html', context)
 
 
+@login_required(login_url='login_view')
+@allowed_groups(groups=['superadmin'])
+def edit_meter(request, SER):
+    print("editing tool")
+    tool = SmartMeters.objects.get(SER=SER)
+    form = AddDeviceForm(instance=tool)
+    if request.method == 'POST':
+        print("post data >> ", request.POST)
+        form = AddDeviceForm(request.POST, instance=tool)
+        if form.is_valid():
+            form.save()
+            print("SER updated")
+            return redirect('all_meters')
+        else:
+            messages.error(request, 'SER is not valid')
+    context = {
+        'form': form
+    }
+    return render(request, 'dc_monitor_app/edit_tool.html', context)
+
+
 # customer
 @login_required(login_url='login_view')
 @allowed_groups(groups=['superadmin'])
@@ -262,26 +283,6 @@ def profile_view(request):
     devices = user.clint.smartmeters_set.all() if user.clint.smartmeters_set.all() else "Empty"
     context = {"user": user, "devices": devices}
     return render(request, 'dc_monitor_app/profile_page.html', context)
-
-
-@login_required(login_url='login_view')
-def edit_meter(request, SER):
-    print("editing tool")
-    tool = SmartMeters.objects.get(SER=SER)
-    form = AddDeviceForm(instance=tool)
-    if request.method == 'POST':
-        print("post data >> ", request.POST)
-        form = AddDeviceForm(request.POST, instance=tool)
-        if form.is_valid():
-            form.save()
-            print("SER updated")
-            return redirect('all_meters')
-        else:
-            messages.error(request, 'SER is not valid')
-    context = {
-        'form': form
-    }
-    return render(request, 'dc_monitor_app/edit_tool.html', context)
 
 
 @login_required(login_url='login_view')
