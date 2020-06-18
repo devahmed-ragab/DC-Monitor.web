@@ -8,12 +8,10 @@ from django.contrib.auth.models import User
 class Clint(models.Model):
     # CASCADE means when user deleted delete that relation
     # todo add time to modify last seen
-    email = models.CharField(max_length=150, null=True)
     location = models.CharField(max_length=100, null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True, null=False)
     phone_number = models.IntegerField(null=True, unique=True, blank=True)
     prof_image = models.ImageField(null=True, blank=True, default="default-profile.png")
-
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
 
     @property
@@ -61,7 +59,7 @@ class Bill(models.Model):
         ordering = ['consumption']
 
     def __str__(self):
-        return "%s bill" % self.user.first_name
+        return "%s bill" % self.user.full_name
 
 
 class SmartMeters(models.Model):
@@ -76,6 +74,7 @@ class SmartMeters(models.Model):
         choices=status,
         default=0
     )
+    consumption = models.FloatField(default=0.0)
 
     def get_status(self):
         return self.status[self.device_status][1]
@@ -88,6 +87,9 @@ class SmartMeters(models.Model):
 
     def __str__(self):
         return "NO. %s" % self.SER
+
+
+# todo create app for appliance
 
 
 class ApplianceCategory(models.Model):

@@ -1,10 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'dc_monitor_app/sidebar.html' %}
+{% load static %}
+
+{% block userSidebar %}
+
+
+    <li>
+        <a class="sidebar-header" href="#">
+           <i data-feather="airplay"></i>
+            <span>Meter</span></a>
+        <ul class="sidebar-submenu">
+            <li><a href="{% url 'add_appliance_view' %}">Configuration</a></li>
+             <li><a href="{% url 'add_appliance_view' %}">Consumption analysis</a></li>
+        </ul>
+    </li>
+
+    <li>
+        <a class="sidebar-header" href="#">
+            <i data-feather="shopping-bag" ></i>
+            <span>Appliance</span></a>
+        <ul class="sidebar-submenu">
+            <li><a href="{% url 'add_appliance_view' %}">My Appliance</a></li>
+            <li><a href="{% url 'all_appliance_view' %}">Store</a></li>
+        </ul>
+    </li>
+
+     <li>
+        <a class="sidebar-header"  href="#">
+            <i data-feather="battery-charging" style="color: limegreen"></i>
+            <span>Saving</span></a>
+        <ul class="sidebar-submenu">
+            <li><a href="{% url 'add_appliance_view' %}">Calculation</a></li>
+            <li><a href="{% url 'all_appliance_view' %}">General Advices</a></li>
+        </ul>
+    </li>
+
+{% endblock %}
+

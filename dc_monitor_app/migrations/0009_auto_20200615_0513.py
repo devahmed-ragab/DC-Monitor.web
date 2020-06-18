@@ -14,14 +14,6 @@ class Migration(migrations.Migration):
             model_name='clint',
             name='email',
         ),
-        migrations.RemoveField(
-            model_name='clint',
-            name='first_name',
-        ),
-        migrations.RemoveField(
-            model_name='clint',
-            name='second_name',
-        ),
         migrations.AddField(
             model_name='smartmeters',
             name='consumption',

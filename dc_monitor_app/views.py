@@ -22,6 +22,7 @@ def percentage(on_devices, all_devices):
 
 @unauthenticated_user
 def login_view(request):
+    print("login view !")
     if request.method == 'POST':
         print("Posting data ...", request.POST)
         username = request.POST.get('username')
@@ -45,17 +46,8 @@ def registration_view(request):
         terms = request.POST.get('check')
         if form.is_valid() and terms:
             print(" request valid :")
-            registration_user = form.save()
+            form.save()
             user_name = form.cleaned_data.get('username')
-
-            group = Group.objects.get(name='user')
-            registration_user.groups.add(group)
-
-            Clint.objects.create(
-                user=registration_user,
-
-            )
-
             messages.success(request, 'Account successfully created ' + user_name)
             return redirect('login_view')
 
@@ -100,9 +92,12 @@ def dashboard_view(request):
 @login_required(login_url='login_view')
 @allowed_groups(groups=['user'])
 def user_dashboard_view(request):
+    # todo show data when user click the card
     devices = request.user.clint.smartmeters_set
-    working_dev = devices.filter(device_status=1).count()
-    on_dev_percentage = percentage(working_dev, devices.count())
+    working_dev = devices.filter(device_status=1)
+    on_dev_percentage = percentage(working_dev.count(), devices.count())
+    # for device in working_dev:
+    #     consmption = device.
     context = {
         'devices': devices,
         'working_dev': working_dev,
@@ -277,7 +272,6 @@ def edit_profile_view(request):
 
 
 @login_required(login_url='login_view')
-@allowed_groups(groups=['superadmin'])
 def profile_view(request):
     user = request.user
     devices = user.clint.smartmeters_set.all() if user.clint.smartmeters_set.all() else "Empty"

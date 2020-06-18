@@ -58,6 +58,8 @@
     <div class="page-body-wrapper">
     {% if request.user.is_staff %}
         {% include 'dc_monitor_app/sidebar.html' %}
+        {% else %}
+        {% include 'dc_monitor_app/user/userSideBar.html' %}
     {% endif %}
         {% block content %}
 

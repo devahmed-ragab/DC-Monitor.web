@@ -2,6 +2,7 @@
   <dictionary name="apple">
     <words>
       <w>allcustomers</w>
+      <w>authtoken</w>
       <w>categ</w>
       <w>smartmeter</w>
       <w>superadmin</w>
