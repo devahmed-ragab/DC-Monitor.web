@@ -45,10 +45,11 @@ INSTALLED_APPS = [
     'dc_monitor_app.apps.DcMonitorConfig',
     'API.apps.ApiConfig',
     # packages
-    'rest_framework',
-    'rest_framework.authtoken',
     'widget_tweaks',
     'django_icons',
+    #API
+    'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -120,17 +121,17 @@ AUTH_PASSWORD_VALIDATORS = [
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated'
-
-    ],
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.IsAuthenticated'
+    #
+    # ],
 
     # methods to access the data :
     # 1- username and password
     # 2- session auth 'access within multiple tabs'
     # 3- token auth
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.BasicAuthentication',
+        # 'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication'
     ]

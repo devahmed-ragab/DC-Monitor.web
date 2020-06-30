@@ -5,24 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef8ca716-dfe7-4fd8-8352-3293d013ce0e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dc_monitor_app/migrations/0010_auto_20200621_0720.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dc_monitor_app/monitor_calculations.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dictionaries/apple.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/apple.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/serializer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/url.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DCmonitor/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DCmonitor/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DCmonitor/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DCmonitor/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dc_monitor_app/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dc_monitor_app/migrations/0009_auto_20200615_0513.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/migrations/0009_auto_20200615_0513.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dc_monitor_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dc_monitor_app/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/signals.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dc_monitor_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/login_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/login_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/sidebar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/user/userSideBar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/user/userSideBar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/user_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/user_page.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +35,52 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Monitor_DB" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Monitor_DB" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Monitor_DB" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="postgres: database" type="162271b6:PgImplModel$Database" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Monitor_DB" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="postgres: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Monitor_DB" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="postgres: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Monitor_DB" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="postgres: database" type="162271b6:PgImplModel$Database" />
+        <item name="access methods" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Monitor_DB" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="postgres: database" type="162271b6:PgImplModel$Database" />
+        <item name="extensions" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
@@ -64,6 +103,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -168,7 +208,19 @@
       <workItem from="1592189319140" duration="12066000" />
       <workItem from="1592302262393" duration="2476000" />
       <workItem from="1592361390293" duration="22182000" />
-      <workItem from="1592479544692" duration="424000" />
+      <workItem from="1592479544692" duration="5367000" />
+      <workItem from="1592553542643" duration="1825000" />
+      <workItem from="1592712951013" duration="3735000" />
+      <workItem from="1592719762682" duration="1701000" />
+      <workItem from="1592721583228" duration="3498000" />
+      <workItem from="1592838049521" duration="6140000" />
+      <workItem from="1592944677359" duration="1065000" />
+      <workItem from="1593377121838" duration="26732000" />
+      <workItem from="1593410927682" duration="74000" />
+      <workItem from="1593423300465" duration="387000" />
+      <workItem from="1593475297802" duration="8110000" />
+      <workItem from="1593540476246" duration="687000" />
+      <workItem from="1593545010409" duration="8529000" />
     </task>
     <servers />
   </component>

@@ -2,6 +2,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
+from .monitor_calculations import calc_price_categ
 
 
 # Create your models here.
@@ -58,6 +59,9 @@ class Bill(models.Model):
     class Meta:
         ordering = ['consumption']
 
+    def set_price_category(self):
+        self.price_category = calc_price_categ(self.consumption)
+
     def __str__(self):
         return "%s bill" % self.user.full_name
 
@@ -75,6 +79,7 @@ class SmartMeters(models.Model):
         default=0
     )
     consumption = models.FloatField(default=0.0)
+    conception_cost = models.FloatField(default=0.0, null=True, blank=True)
 
     def get_status(self):
         return self.status[self.device_status][1]

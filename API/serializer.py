@@ -1,11 +1,14 @@
 from rest_framework import serializers
+from django.contrib.auth import authenticate
 from rest_framework.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.contrib.auth.models import User
+from django.db.models import Q
 from rest_framework.serializers import (
     HyperlinkedModelSerializer,
     ModelSerializer,
     CharField,
+    IntegerField,
     EmailField,
 )
 from dc_monitor_app.models import (
@@ -19,13 +22,21 @@ from dc_monitor_app.models import (
 )
 
 
-class UserCreateSerializer(ModelSerializer):
+class ClintSerializer(ModelSerializer):
+    class Meta:
+        model = Clint
+        fields = [ 'location', 'date_created', 'phone_number', 'prof_image']
+
+
+class UserSerializer(ModelSerializer):
+    clint = ClintSerializer(many=False, read_only=True)
     email = EmailField(label='Email')
     first_name = CharField()
+    last_name = CharField()
 
     class Meta:
         model = User
-        fields = ['username', 'first_name', 'last_name', 'email', 'password']
+        fields = ['username', 'first_name', 'last_name', 'email', 'password', 'clint']
 
         extra_kwargs = {
             "password": {
@@ -37,7 +48,7 @@ class UserCreateSerializer(ModelSerializer):
         email = data['email']
         user_qs = User.objects.filter(email=email)
         if user_qs:
-            raise ValidationError('This user has already registered.')
+            raise ValidationError('This email has already registered.')
         return data
 
     def create(self, validated_data):
@@ -53,26 +64,18 @@ class UserCreateSerializer(ModelSerializer):
         user_obj.save()
         print(f'{username} has been created !')
         return user_obj
+    #
+    # def update(self, instance, validated_data):
+    #     instance.paassword = validated_data.get('username', instance.password)
+    #     instance.username = validated_data.get('username', instance.username)
+    #     instance.first_name = validated_data.get('first_name', instance.first_name)
+    #     instance.last_name = validated_data.get('last_name', instance.last_name)
+    #     instance.email = validated_data.get('email', instance.email)
+    #     instance.update
+    #     return instance
 
 
-class UserLoginSerializer(ModelSerializer):
-    token = CharField(allow_blank=True, read_only=True)
-
-    class Meta:
-        model = User
-        fields = ['username', 'password', 'token']
-
-        extra_kwargs = {
-            "password": {
-                "write_only": True
-            }
-        }
-
-    def validate(self, data):
-        return data
-
-
-class SmartMeterSerializer(HyperlinkedModelSerializer):
+class SmartMeterSerializer(ModelSerializer):
     SER = CharField(required=False,
                     validators=[
                         RegexValidator(regex='^.{10}$', message='Length has to be 10', code='nomatch')
@@ -80,27 +83,33 @@ class SmartMeterSerializer(HyperlinkedModelSerializer):
 
     class Meta:
         model = SmartMeters
-        fields = ['user', 'SER', 'consumption', 'device_status']
+        fields = ['SER', 'consumption', 'device_status', 'conception_cost']
 
 
-class UserSerializer(HyperlinkedModelSerializer):
+class UserProfileSerializer(ModelSerializer):
+    clint = ClintSerializer()
+
     class Meta:
         model = User
-        fields = ['username', 'first_name', 'last_name', 'email', 'password']
+        fields = ['username', 'first_name', 'last_name', 'email', 'clint']
+
+        extra_kwargs = {
+            "password": {
+                "requirement": False,
+                'blank': True
+            }
+        }
 
 
-class ClintSerializer(HyperlinkedModelSerializer):
-    user = UserSerializer
 
-    class Meta:
-        model = Clint
-        fields = ['user', 'location', 'date_created', 'phone_number', 'prof_image']
+class PasswordSerializer(ModelSerializer):
+    password = CharField(required=True, write_only=True)
 
 
-class BillSerializer(HyperlinkedModelSerializer):
+class BillSerializer(ModelSerializer):
     class Meta:
         model = Bill
-        fields = '__all__'
+        fields = ['user', 'consumption', 'bill', 'price_category', 'conception_date']
 
 
 class ApplianceCategorySerializer(HyperlinkedModelSerializer):

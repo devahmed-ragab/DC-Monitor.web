@@ -4,7 +4,9 @@
       <w>allcustomers</w>
       <w>authtoken</w>
       <w>categ</w>
+      <w>consum</w>
       <w>smartmeter</w>
+      <w>smartmeters</w>
       <w>superadmin</w>
       <w>whitenoise</w>
     </words>
