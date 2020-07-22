@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DjangoModelDependency</ID>
+  <OriginalElement>#DCmonitor</OriginalElement>
+  <nodes>
+    <node x="346.0" y="11.5">django.contrib.auth.models.Group</node>
+    <node x="343.25" y="513.0">dc_monitor_app.models.Bill</node>
+    <node x="0.0" y="736.5">dc_monitor_app.models.ApplianceCategory</node>
+    <node x="29.25" y="513.0">dc_monitor_app.models.SmartMeters</node>
+    <node x="344.5" y="896.0">dc_monitor_app.models.Appliances</node>
+    <node x="203.0" y="296.0">dc_monitor_app.models.Clint</node>
+    <node x="0.0" y="0.0">django.contrib.auth.models.Permission</node>
+    <node x="187.0" y="194.0">django.contrib.auth.models.User</node>
+    <node x="362.0" y="702.0">dc_monitor_app.models.Seller</node>
+    <node x="636.0" y="736.5">dc_monitor_app.models.Factory</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="django.contrib.auth.models.User" target="django.contrib.auth.models.Group">
+      <point x="69.5" y="-26.0" />
+      <point x="395.5" y="169.0" />
+      <point x="489.0" y="169.0" />
+      <point x="0.0" y="60.5" />
+    </edge>
+    <edge source="dc_monitor_app.models.Appliances" target="dc_monitor_app.models.Seller">
+      <point x="0.0" y="-198.5" />
+      <point x="0.0" y="72.0" />
+    </edge>
+    <edge source="dc_monitor_app.models.Bill" target="dc_monitor_app.models.Clint">
+      <point x="0.0" y="-72.0" />
+      <point x="475.75" y="488.0" />
+      <point x="387.5" y="488.0" />
+      <point x="61.5" y="83.5" />
+    </edge>
+    <edge source="dc_monitor_app.models.SmartMeters" target="dc_monitor_app.models.Clint">
+      <point x="0.0" y="-72.0" />
+      <point x="176.25" y="488.0" />
+      <point x="264.5" y="488.0" />
+      <point x="-61.5" y="83.5" />
+    </edge>
+    <edge source="dc_monitor_app.models.Appliances" target="dc_monitor_app.models.ApplianceCategory">
+      <point x="-96.33333333333331" y="-198.5" />
+      <point x="392.6666666666667" y="871.0" />
+      <point x="171.0" y="871.0" />
+      <point x="0.0" y="37.5" />
+    </edge>
+    <edge source="django.contrib.auth.models.User" target="django.contrib.auth.models.Permission">
+      <point x="-69.5" y="-26.0" />
+      <point x="256.5" y="169.0" />
+      <point x="163.0" y="169.0" />
+      <point x="0.0" y="72.0" />
+    </edge>
+    <edge source="dc_monitor_app.models.Appliances" target="dc_monitor_app.models.Factory">
+      <point x="96.33333333333331" y="-198.5" />
+      <point x="585.3333333333333" y="871.0" />
+      <point x="767.0" y="871.0" />
+      <point x="0.0" y="37.5" />
+    </edge>
+    <edge source="dc_monitor_app.models.Clint" target="django.contrib.auth.models.User">
+      <point x="0.0" y="-83.5" />
+      <point x="0.0" y="26.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.4922640700009848" x="477.6720502455719" y="763.5018151527062" />
+  <SelectedNodes>
+    <node>django.contrib.auth.models.User</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
+</Diagram>
+

@@ -35,7 +35,7 @@ def login_view(request):
         else:
             messages.info(request, 'username or password is wrong')
 
-    return render(request, 'dc_monitor_app/login_page.html')
+    return render(request, 'dc_monitor_app/registraion/login_page.html')
 
 
 @unauthenticated_user
@@ -52,7 +52,7 @@ def registration_view(request):
             return redirect('login_view')
 
     context = {"form": form}
-    return render(request, 'dc_monitor_app/registration_page.html', context)
+    return render(request, 'dc_monitor_app/registraion/registration_page.html', context)
 
 
 @allowed_groups(groups=['user', 'superadmin'])
@@ -86,7 +86,7 @@ def dashboard_view(request):
     }
     print(context)
 
-    return render(request, 'dc_monitor_app/dashboard.html', context)
+    return render(request, 'dc_monitor_app/admin/dashboard.html', context)
 
 
 @login_required(login_url='login_view')
@@ -103,7 +103,7 @@ def user_dashboard_view(request):
         'working_dev': working_dev,
         'dev_percentage': on_dev_percentage,
     }
-    return render(request, 'dc_monitor_app/user_page.html', context)
+    return render(request, 'dc_monitor_app/user/user_page.html', context)
 
 
 # meter
@@ -119,7 +119,7 @@ def add_meter_view(request):
     context = {
         'form': form
     }
-    return render(request, 'dc_monitor_app/add_tool_page.html', context)
+    return render(request, 'dc_monitor_app/admin/add_tool_page.html', context)
 
 
 @login_required(login_url='login_view')
@@ -131,7 +131,7 @@ def all_meters_view(request):
         'devices': devices,
         'counter': counter
     }
-    return render(request, 'dc_monitor_app/all_tools_page.html', context)
+    return render(request, 'dc_monitor_app/admin/all_tools_page.html', context)
 
 
 @login_required(login_url='login_view')
@@ -152,7 +152,7 @@ def edit_meter(request, SER):
     context = {
         'form': form
     }
-    return render(request, 'dc_monitor_app/edit_tool.html', context)
+    return render(request, 'dc_monitor_app/admin/edit_tool.html', context)
 
 
 # customer
@@ -166,7 +166,7 @@ def all_customers_view(request):
     context = {
         'users': users
     }
-    return render(request, 'dc_monitor_app/customer_form_page.html', context)
+    return render(request, 'dc_monitor_app/user/customer_form_page.html', context)
 
 
 @login_required(login_url='login_view')
@@ -180,7 +180,7 @@ def delete_customers_view(request, id):
         return redirect('all_customers_view')
     context = {'item': customer}
     print(f"Customers  data : {customer}")
-    return render(request, 'dc_monitor_app/delet_item.html', context)
+    return render(request, 'dc_monitor_app/admin/delet_item.html', context)
 
 
 @login_required(login_url='login_view')
@@ -210,7 +210,7 @@ def edit_customers_view(request, id):
         'device_form': device_form,
         'user': user
     }
-    return render(request, 'dc_monitor_app/eedit_customer_page.html', context)
+    return render(request, 'dc_monitor_app/admin/eedit_customer_page.html', context)
 
 
 @login_required(login_url='login_view')
@@ -220,7 +220,7 @@ def all_appliance_view(request):
     context = {
         'appliance': appliance
     }
-    return render(request, 'dc_monitor_app/all_appliance_page.html', context)
+    return render(request, 'dc_monitor_app/admin/all_appliance_page.html', context)
 
 
 @login_required(login_url='login_view')
@@ -240,7 +240,7 @@ def add_appliance_view(request):
     context = {
         'form': form
     }
-    return render(request, 'dc_monitor_app/add_appliance_page.html', context)
+    return render(request, 'dc_monitor_app/admin/add_appliance_page.html', context)
 
 
 @login_required(login_url='login_view')
@@ -268,7 +268,7 @@ def edit_profile_view(request):
     }
     print(context)
 
-    return render(request, 'dc_monitor_app/edith_profile_page.html', context)
+    return render(request, 'dc_monitor_app/user/edith_profile_page.html', context)
 
 
 @login_required(login_url='login_view')
@@ -276,7 +276,7 @@ def profile_view(request):
     user = request.user
     devices = user.clint.smartmeters_set.all() if user.clint.smartmeters_set.all() else "Empty"
     context = {"user": user, "devices": devices}
-    return render(request, 'dc_monitor_app/profile_page.html', context)
+    return render(request, 'dc_monitor_app/admin/profile_page.html', context)
 
 
 @login_required(login_url='login_view')
@@ -289,7 +289,7 @@ def delete_meter(request, SER):
     context = {
         'item': device
     }
-    return render(request, 'dc_monitor_app/delet_item.html', context)
+    return render(request, 'dc_monitor_app/admin/delet_item.html', context)
 
 
 @login_required(login_url='login_view')
@@ -310,7 +310,7 @@ def edit_appliance_view(request, id):
     context = {
         'form': form
     }
-    return render(request, 'dc_monitor_app/edit_appliance.html', context)
+    return render(request, 'dc_monitor_app/admin/edit_appliance.html', context)
 
 
 @login_required(login_url='login_view')
@@ -323,7 +323,7 @@ def delete_appliance_view(request, id):
     context = {
         'item': device
     }
-    return render(request, 'dc_monitor_app/delet_item.html', context)
+    return render(request, 'dc_monitor_app/admin/delet_item.html', context)
 
 
 @login_required(login_url='login_view')
@@ -340,6 +340,6 @@ def change_password(request):
             messages.error(request, 'Please correct the error below.')
     else:
         form = PasswordChangeForm(request.user)
-    return render(request, 'dc_monitor_app/change_password_page.html', {
+    return render(request, 'dc_monitor_app/user/change_password_page.html', {
         'form': form
     })

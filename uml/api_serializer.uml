@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#/Users/apple/work/DCmonitor/API/serializer.py</OriginalElement>
+  <nodes>
+    <node x="0.0" y="0.0">rest_framework.serializers.HyperlinkedModelSerializer</node>
+    <node x="598.0" y="648.0">object</node>
+    <node x="0.0" y="288.0">rest_framework.serializers.BaseSerializer</node>
+    <node x="0.0" y="360.0">rest_framework.serializers.Serializer</node>
+    <node x="315.0" y="576.0">API.serializer.BillSerializer</node>
+    <node x="0.0" y="144.0">API.serializer.ApplianceCategorySerializer</node>
+    <node x="0.0" y="432.0">API.serializer.SmartMeterSerializer</node>
+    <node x="0.0" y="216.0">rest_framework.serializers.ModelSerializer</node>
+    <node x="339.0" y="504.0">API.serializer.SellerSerializer</node>
+    <node x="0.0" y="648.0">API.serializer.UserSerializer</node>
+    <node x="307.0" y="648.0">rest_framework.fields.Field</node>
+    <node x="0.0" y="576.0">API.serializer.ClintSerializer</node>
+    <node x="371.0" y="360.0">API.serializer.UserProfileSerializer</node>
+    <node x="0.0" y="72.0">rest_framework.serializers.SerializerMetaclass</node>
+    <node x="0.0" y="504.0">API.serializer.PasswordSerializer</node>
+    <node x="355.0" y="432.0">API.serializer.AppliancesSerializer</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="0.7784172661870503" x="344.5" y="337.5" />
+  <SelectedNodes />
+  <Categories />
+</Diagram>
+

@@ -16,7 +16,8 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-lg-12 xl-100">
-              <div class="row" >
+              <div class="row" id="q12">
+
                 <div class="col-xl-4 xl-50 col-md-4 box-col-4">
                   <div class="card">
                     <div class="card-body tag-card">
@@ -24,7 +25,9 @@
                         <div class="media media-widgets">
                           <div class="media-body">
                             <p class="mb-0 ">ON Devices</p>
-                            <h3 class="mt-0 mb-0 f-w-600"><span class="counter">{{ devices.count }}</span><span><i class="font-danger"
+                            <h3 class="mt-0 mb-0 f-w-600">
+                                <span class="counter">{{ devices.count }}</span>
+                                <span><i class="font-danger"
                                   data-feather="radio"></i></span></h3>
                           </div>
                         </div>
@@ -38,7 +41,6 @@
                     </div>
                   </div>
                 </div>
-
                 <div class="col-xl-4 xl-50 col-md-4 box-col-4">
                   <div class="card">
                     <div class="card-body tag-card">
@@ -80,9 +82,33 @@
                     </div>
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
         </div>
       </div>
+    <script type="text/javascript">
+    function buildData() {
+        console.log("xxxxxx")
+       var myHeaders = new Headers();
+       myHeaders.append("Authorization", "Token 77f1a3ae550d226109b156df1ff689b2bd5c3bf3");
+
+        var formdata = new FormData();
+
+        var requestOptions = {
+          method: 'GET',
+          headers: myHeaders,
+          redirect: 'follow'
+        };
+
+    fetch("https://dcmonitor-dcm.herokuapp.com/api/bill", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+
+        }
+        buildData()
+    </script>
+
 {% endblock %}
