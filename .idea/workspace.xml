@@ -5,39 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef8ca716-dfe7-4fd8-8352-3293d013ce0e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/api_views.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/812062.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/812062_ZmBNwVH.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/812062_gorpG2N.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/812062_wUMRjdJ.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/egypt.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/moon-4606246_1920.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/myke-simon-atsUqIm3wxo-unsplash.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/us.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dc_monitor_app/registraion/register_success.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uml/api_serializer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uml/api_views.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uml/app_form.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uml/app_models_class_digram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uml/forms.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uml/forms1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/serializer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/url.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UML.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dc_monitor_app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dc_monitor_app/junkData.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/junkData.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dc_monitor_app/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/url.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dc_monitor_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/registraion/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/registraion/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/registraion/login_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/registraion/login_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/registraion/registration_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/registraion/registration_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/user/user_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/user/user_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uml/api_views.uml" beforeDir="false" afterPath="$PROJECT_DIR$/uml/api_views.uml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uml/app_form.uml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uml/app_models_class_digram.uml" beforeDir="false" afterPath="$PROJECT_DIR$/uml/app_models_class_digram.uml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uml/app_models_class_digram2_uml.uml" beforeDir="false" afterPath="$PROJECT_DIR$/uml/app_models_class_digram2_uml.uml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -261,7 +230,7 @@
       <workItem from="1595616606209" duration="5163000" />
       <workItem from="1595625236139" duration="8271000" />
       <workItem from="1595637380467" duration="269000" />
-      <workItem from="1595639612951" duration="4756000" />
+      <workItem from="1595639612951" duration="5186000" />
     </task>
     <servers />
   </component>

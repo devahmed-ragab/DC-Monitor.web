@@ -1,4 +1,4 @@
-import form as form
+
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.core.validators import RegexValidator
 from django.contrib.auth.models import User
