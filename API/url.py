@@ -16,11 +16,16 @@ router.register('Appliances', views.AppliancesSerializerView)
 router.register('ApplianceCategory', views.ApplianceCategorySerializerView)
 
 
+
 urlpatterns = [
     # get user token takes post request with username and password
     path('token/auth', CustomAuthToken.as_view()),
     path('register', UserCreateAPIView.as_view(), name='register'),
-    path('bill', BillAPIView.as_view()),
+    path('bill', BillAPIView.as_view(), name='api_bill'),
+    path('user/profile', UserDetailView.as_view()),
+    path('user/image', UserImageDetailView.as_view()),
+
+
 
     path('', include(router.urls))
 

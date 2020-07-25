@@ -3,79 +3,78 @@
   <ID>Python</ID>
   <OriginalElement>#/Users/apple/work/DCmonitor/dc_monitor_app/models.py</OriginalElement>
   <nodes>
-    <node x="1804.0" y="2148.0">dc_monitor_app.models.Bill</node>
-    <node x="1136.0" y="2229.0">dc_monitor_app.models.ApplianceCategory</node>
-    <node x="600.5" y="586.0">django.db.models.base.Model</node>
-    <node x="282.0" y="2160.0">dc_monitor_app.models.SmartMeters</node>
-    <node x="1498.0" y="2056.0">dc_monitor_app.models.Appliances</node>
-    <node x="703.25" y="80.5">django.db.models.base.ModelBase</node>
-    <node x="870.0" y="2171.5">dc_monitor_app.models.Clint</node>
-    <node x="596.0" y="2217.5">dc_monitor_app.models.Seller</node>
-    <node x="1010.25" y="0.0">object</node>
-    <node x="0.0" y="2240.5">dc_monitor_app.models.Factory</node>
+    <node x="0.0" y="1812.0">dc_monitor_app.models.Bill</node>
+    <node x="564.0" y="1824.0">dc_monitor_app.models.ApplianceCategory</node>
+    <node x="656.5" y="493.0">django.db.models.base.Model</node>
+    <node x="1748.0" y="1801.0">dc_monitor_app.models.SmartMeters</node>
+    <node x="258.0" y="1823.5">dc_monitor_app.models.Appliances</node>
+    <node x="759.25" y="149.5">django.db.models.base.ModelBase</node>
+    <node x="926.0" y="1801.0">dc_monitor_app.models.Clint</node>
+    <node x="1474.0" y="1835.5">dc_monitor_app.models.Seller</node>
+    <node x="1066.25" y="0.0">object</node>
+    <node x="1192.0" y="1824.0">dc_monitor_app.models.Factory</node>
   </nodes>
   <notes />
   <edges>
     <edge source="dc_monitor_app.models.Clint" target="django.db.models.base.Model">
-      <point x="0.0" y="-118.5" />
-      <point x="0.0" y="705.0" />
+      <point x="0.0" y="-60.5" />
+      <point x="0.0" y="624.0" />
     </edge>
     <edge source="dc_monitor_app.models.Bill" target="django.db.models.base.Model">
-      <point x="0.0" y="-142.0" />
-      <point x="1923.0" y="2016.0" />
-      <point x="1329.4285714285716" y="2016.0" />
-      <point x="336.42857142857156" y="705.0" />
+      <point x="0.0" y="-49.5" />
+      <point x="119.0" y="1761.0" />
+      <point x="712.5714285714286" y="1761.0" />
+      <point x="-336.42857142857144" y="624.0" />
     </edge>
     <edge source="django.db.models.base.Model" target="django.db.models.base.ModelBase">
-      <point x="-196.25" y="-705.0" />
-      <point x="796.75" y="561.0" />
-      <point x="846.75" y="561.0" />
-      <point x="0.0" y="187.5" />
-    </edge>
-    <edge source="dc_monitor_app.models.Appliances" target="django.db.models.base.Model">
-      <point x="0.0" y="-234.0" />
-      <point x="1641.0" y="2026.0" />
-      <point x="1217.2857142857142" y="2026.0" />
-      <point x="224.28571428571422" y="705.0" />
+      <point x="-196.25" y="-624.0" />
+      <point x="852.75" y="468.0" />
+      <point x="902.75" y="468.0" />
+      <point x="0.0" y="72.0" />
     </edge>
     <edge source="dc_monitor_app.models.Factory" target="django.db.models.base.Model">
-      <point x="0.0" y="-49.5" />
-      <point x="131.0" y="2016.0" />
-      <point x="656.5714285714286" y="2016.0" />
-      <point x="-336.42857142857144" y="705.0" />
+      <point x="0.0" y="-37.5" />
+      <point x="1323.0" y="1781.0" />
+      <point x="1161.1428571428573" y="1781.0" />
+      <point x="112.14285714285734" y="624.0" />
     </edge>
     <edge source="django.db.models.base.Model" target="object">
-      <point x="196.25" y="-705.0" />
-      <point x="1189.25" y="561.0" />
-      <point x="1139.25" y="561.0" />
-      <point x="0.0" y="268.0" />
+      <point x="196.25" y="-624.0" />
+      <point x="1245.25" y="468.0" />
+      <point x="1195.25" y="468.0" />
+      <point x="0.0" y="221.5" />
     </edge>
-    <edge source="dc_monitor_app.models.ApplianceCategory" target="django.db.models.base.Model">
-      <point x="0.0" y="-61.0" />
-      <point x="1307.0" y="2036.0" />
-      <point x="1105.1428571428573" y="2036.0" />
-      <point x="112.14285714285734" y="705.0" />
+    <edge source="dc_monitor_app.models.Appliances" target="django.db.models.base.Model">
+      <point x="0.0" y="-38.0" />
+      <point x="401.0" y="1771.0" />
+      <point x="824.7142857142858" y="1771.0" />
+      <point x="-224.28571428571422" y="624.0" />
     </edge>
     <edge source="dc_monitor_app.models.Seller" target="django.db.models.base.Model">
-      <point x="0.0" y="-72.5" />
-      <point x="723.0" y="2036.0" />
-      <point x="880.8571428571429" y="2036.0" />
-      <point x="-112.14285714285711" y="705.0" />
+      <point x="0.0" y="-26.0" />
+      <point x="1601.0" y="1771.0" />
+      <point x="1273.2857142857142" y="1771.0" />
+      <point x="224.28571428571422" y="624.0" />
+    </edge>
+    <edge source="dc_monitor_app.models.ApplianceCategory" target="django.db.models.base.Model">
+      <point x="0.0" y="-37.5" />
+      <point x="735.0" y="1781.0" />
+      <point x="936.8571428571429" y="1781.0" />
+      <point x="-112.14285714285711" y="624.0" />
     </edge>
     <edge source="dc_monitor_app.models.SmartMeters" target="django.db.models.base.Model">
-      <point x="0.0" y="-130.0" />
-      <point x="429.0" y="2026.0" />
-      <point x="768.7142857142858" y="2026.0" />
-      <point x="-224.28571428571422" y="705.0" />
+      <point x="0.0" y="-60.5" />
+      <point x="1895.0" y="1761.0" />
+      <point x="1385.4285714285716" y="1761.0" />
+      <point x="336.42857142857156" y="624.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.4219204655674103" x="1011.0" y="1936.116091954023" />
+  <settings layout="Hierarchic Group" zoom="0.29776915615906885" x="1021.0" y="961.0" />
   <SelectedNodes>
-    <node>dc_monitor_app.models.Factory</node>
+    <node>dc_monitor_app.models.Bill</node>
   </SelectedNodes>
   <Categories>
     <Category>Methods</Category>
-    <Category>Fields</Category>
     <Category>Inner Classes</Category>
   </Categories>
 </Diagram>

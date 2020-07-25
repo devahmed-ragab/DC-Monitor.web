@@ -1,3 +1,4 @@
+from django.forms import FileField
 from rest_framework import serializers
 from django.contrib.auth import authenticate
 from rest_framework.exceptions import ValidationError
@@ -10,7 +11,10 @@ from rest_framework.serializers import (
     CharField,
     IntegerField,
     EmailField,
+    ImageField
 )
+from rest_framework.validators import UniqueValidator
+
 from dc_monitor_app.models import (
     SmartMeters,
     Clint,
@@ -23,12 +27,28 @@ from dc_monitor_app.models import (
 
 
 class ClintSerializer(ModelSerializer):
+
     class Meta:
         model = Clint
-        fields = [ 'location', 'date_created', 'phone_number', 'prof_image']
+        fields = ['location', 'date_created', 'phone_number', 'prof_image']
+
+        extra_kwargs = {
+            "prof_image": {
+                "read_only": False,
+
+            }
+        }
 
 
-class UserSerializer(ModelSerializer):
+class ImageSerializer(ModelSerializer):
+    prof_image = ImageField()
+
+    class Meta:
+        model = Clint
+        fields = ['prof_image']
+
+
+class UserClintValidatedSerializer(ModelSerializer):
     clint = ClintSerializer(many=False, read_only=True)
     email = EmailField(label='Email')
     first_name = CharField()
@@ -87,11 +107,15 @@ class SmartMeterSerializer(ModelSerializer):
 
 
 class UserProfileSerializer(ModelSerializer):
-    clint = ClintSerializer()
+    email = serializers.EmailField(
+        validators=[
+            UniqueValidator(queryset=User.objects.all(), message="This Email already Exist")
+        ]
+    )
 
     class Meta:
         model = User
-        fields = ['username', 'first_name', 'last_name', 'email', 'clint']
+        fields = ['username', 'first_name', 'last_name', 'email']
 
         extra_kwargs = {
             "password": {
@@ -99,7 +123,6 @@ class UserProfileSerializer(ModelSerializer):
                 'blank': True
             }
         }
-
 
 
 class PasswordSerializer(ModelSerializer):

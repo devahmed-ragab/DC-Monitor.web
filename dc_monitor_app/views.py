@@ -1,13 +1,18 @@
-from datetime import date, timedelta
-from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
-from django.contrib.auth.models import Group
+from datetime import date, timedelta
+from django.contrib import messages
+from rest_framework import status
+from rest_framework.response import Response
+
 from .decorators import *
 from .forms import *
 from .models import Clint
+
+from django.http import HttpResponse, JsonResponse
+from django.views import View
 
 
 def percentage(on_devices, all_devices):
@@ -40,18 +45,19 @@ def login_view(request):
 
 @unauthenticated_user
 def registration_view(request):
-    form = CreateUserForm()
+    form_r = CreateUserForm()
     if request.method == 'POST':
-        form = CreateUserForm(request.POST)
+        form_r = CreateUserForm(request.POST)
         terms = request.POST.get('check')
-        if form.is_valid() and terms:
+        print("POST registr")
+        if form_r.is_valid() and terms:
             print(" request valid :")
-            form.save()
-            user_name = form.cleaned_data.get('username')
+            form_r.save()
+            user_name = form_r.cleaned_data.get('username')
             messages.success(request, 'Account successfully created ' + user_name)
-            return redirect('login_view')
+            return render(request, 'dc_monitor_app/registraion/register_success.html')
 
-    context = {"form": form}
+    context = {"form": form_r}
     return render(request, 'dc_monitor_app/registraion/registration_page.html', context)
 
 
@@ -92,18 +98,52 @@ def dashboard_view(request):
 @login_required(login_url='login_view')
 @allowed_groups(groups=['user'])
 def user_dashboard_view(request):
+    print('user_dashboard_view : ')
     # todo show data when user click the card
-    devices = request.user.clint.smartmeters_set
+    clint = request.user.clint
+    devices = clint.smartmeters_set
     working_dev = devices.filter(device_status=1)
     on_dev_percentage = percentage(working_dev.count(), devices.count())
-    # for device in working_dev:
-    #     consmption = device.
+
+    try:
+        clint_bill = clint.bill_set.order_by('-conception_date')[0]
+    except IndexError:
+        clint_bill = 0
+        print(f"No bill for clint {clint}.")
+    m = clint.smartmeters_set.all()
+    for s in m:
+        print(f" smart {s.SER} = {s.consumption}")
+        print(f" smart {s.SER} = {s.get_status()} .")
+
     context = {
         'devices': devices,
         'working_dev': working_dev,
+        'user_bill': clint_bill,
         'dev_percentage': on_dev_percentage,
     }
     return render(request, 'dc_monitor_app/user/user_page.html', context)
+
+
+def user_dashboard_ajax(request):
+    print("user_dashboard_ajax:")
+    if request.is_ajax and request.method == "GET":
+
+        clint = request.user.clint
+        devices = clint.smartmeters_set
+        working_dev = devices.filter(device_status=1)
+        on_dev_percentage = percentage(working_dev.count(), devices.count())
+
+        try:
+            clint_bill = clint.bill_set.order_by('-conception_date')[0]
+        except IndexError:
+            clint_bill = 0
+        user_bill = clint_bill.consumption
+        return Response({
+            'devices': devices,
+            'working_dev': working_dev,
+            'user_bill': user_bill
+            # 'dev_percentage': on_dev_percentage,
+        }, status=status.HTTP_200_OK)
 
 
 # meter

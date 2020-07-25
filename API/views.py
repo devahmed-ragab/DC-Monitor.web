@@ -1,10 +1,10 @@
-
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.utils.datetime_safe import datetime
 from rest_framework import viewsets, status, mixins
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.decorators import action, permission_classes
+from rest_framework.parsers import FileUploadParser
 from rest_framework.settings import api_settings
 from django.utils.decorators import method_decorator
 from rest_framework.views import APIView
@@ -12,21 +12,22 @@ from rest_framework.response import Response
 from rest_framework.generics import CreateAPIView, UpdateAPIView, GenericAPIView
 from rest_framework.permissions import AllowAny
 from rest_framework.authtoken.models import Token
+from rest_framework.parsers import FormParser, MultiPartParser, JSONParser
 from rest_framework.status import (
     HTTP_200_OK,
     HTTP_400_BAD_REQUEST)
 from API.serializer import (
     ApplianceCategorySerializer,
     SmartMeterSerializer,
-    UserSerializer,
+    UserClintValidatedSerializer,
     # UserLoginSerializer,
     ClintSerializer,
     BillSerializer,
     SellerSerializer,
     AppliancesSerializer,
-    UserSerializer,
+    UserClintValidatedSerializer,
     UserProfileSerializer,
-    PasswordSerializer)
+    PasswordSerializer, ImageSerializer)
 from dc_monitor_app.models import *
 
 
@@ -39,7 +40,7 @@ class CustomAuthToken(ObtainAuthToken):
         serializer.is_valid(raise_exception=True)
         user = serializer.validated_data['user']
         token, created = Token.objects.get_or_create(user=user)
-        user_serializer = UserSerializer(user)
+        user_serializer = UserClintValidatedSerializer(user)
 
         return Response({
             'token': token.key,
@@ -50,24 +51,8 @@ class CustomAuthToken(ObtainAuthToken):
 
 class UserCreateAPIView(CreateAPIView):
     permission_classes = [AllowAny, ]
-    serializer_class = UserSerializer
+    serializer_class = UserClintValidatedSerializer
     queryset = User.objects.all()
-
-#
-# class UserUpdateAPIView(APIView):
-#
-#     def post(self, request, format=None):
-#         user = request.user
-#         user_serializer = UserProfileSerializer(user, request.data)
-#         if user_serializer.is_valid():
-#             user_serializer.save()
-#             return Response(user_serializer.data, self=status.HTTP_200_OK)
-#         return Response(user_serializer.errors)
-
-#
-# class UserUpdateAPIView(viewsets.ModelViewSet):
-#     queryset = User.objects.all()
-#     serializer_class = UserProfileSerializer
 
 
 class BillAPIView(APIView):
@@ -93,12 +78,50 @@ class BillAPIView(APIView):
         }, status=status.HTTP_200_OK)
 
 
-# class UserDetailView(APIView):
+class UserDetailView(APIView):
+    parser_class = (FormParser, MultiPartParser, JSONParser, FileUploadParser)
 
-    # def get(self, request, format=None):
-    #     user = request.user
-    #     serializer = UserProfileSerializer(user)
-    #     return Response(serializer.data)
+    def get(self, request, format=None):
+        user = request.user
+        serializer = UserClintValidatedSerializer(user)
+        return Response(serializer.data)
+
+    def put(self, request, format=None):
+        print(f"update profile for clint :{request.user.clint} .. ")
+        user = request.user
+        print(user)
+        user_serializer = UserProfileSerializer(user, data=request.data)
+        clint_serializer = ClintSerializer(user.clint, data=request.data)
+        if user_serializer.is_valid() and clint_serializer.is_valid():
+            print("UserDetailView.put : valid profile  ")
+            user_serializer.save()
+            clint_serializer.save()
+            return Response({'user': user_serializer.data,
+                             'clint': clint_serializer.data
+                             }, status=status.HTTP_200_OK)
+        return Response(user_serializer.errors, status=HTTP_400_BAD_REQUEST)
+
+
+class UserImageDetailView(APIView):
+    parser_class = (FormParser, MultiPartParser, JSONParser)
+
+    def get(self, request, format=None):
+        user = request.user
+        serializer = ImageSerializer()
+        if not user.is_anonymous:
+            clint = user.clint
+            serializer = ImageSerializer(clint)
+        return Response(serializer.data)
+
+    def put(self, request):
+        user = request.user.clint
+        print(user)
+        serializer = ImageSerializer(user, data=request.data)
+        if serializer.is_valid():
+            print("valid : Image Uploaded successfully ")
+            serializer.save()
+            return Response(serializer.data, status=200)
+        return Response(serializer.errors, status=400)
 
     # @permission_classes((AllowAny,))
     # def post(self, request, format=None):
@@ -134,14 +157,9 @@ class SmartMeterView(viewsets.ModelViewSet):
     serializer_class = SmartMeterSerializer
 
 
-class ClintSerializerView(viewsets.ModelViewSet):
-    queryset = Clint.objects.all()
-    serializer_class = ClintSerializer
-
-
 class UserSerializerView(viewsets.ModelViewSet):
     queryset = User.objects.all()
-    serializer_class = UserSerializer
+    serializer_class = UserClintValidatedSerializer
 
 
 class ApplianceCategorySerializerView(viewsets.ModelViewSet):

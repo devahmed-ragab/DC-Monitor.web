@@ -26,7 +26,7 @@
                           <div class="media-body">
                             <p class="mb-0 ">ON Devices</p>
                             <h3 class="mt-0 mb-0 f-w-600">
-                                <span class="counter">{{ devices.count }}</span>
+                                <span class="counter">{{ working_dev.count}}</span>
                                 <span><i class="font-danger"
                                   data-feather="radio"></i></span></h3>
                           </div>
@@ -48,13 +48,15 @@
                         <div class="media media-widgets">
                           <div class="media-body">
                             <p class="mb-0">Consumption</p>
-                            <h3 class="mt-0 mb-0 f-w-600"><span class="counter">{{ users_count }}</span><span><i class="font-success"
+                            <h3 class="mt-0 mb-0 f-w-600">
+                                <span class="counter" id="consmption" >{{ user_bill.consumption }}</span>
+                                <span><i class="font-success"
                                   data-feather="airplay"></i></span></h3>
                           </div>
                         </div>
                         <div class="progress sm-progress-bar progress-animate">
-                          <div class="progress-gradient-success" role="progressbar" style="width: 100%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
-                              <span class="font-success">100%</span><span class="animate-circle"></span></div>
+                          <div id="cons_progress" class="progress-gradient-success" role="progressbar" style="width: 100%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="">
+                              <span class="font-success" id="str_cons_value">100%</span><span class="animate-circle"></span></div>
                         </div><span class="tag-content-success tag-hover-effect"><i data-feather="trending-up">
                           </i></span>
                       </div>
@@ -67,15 +69,15 @@
                       <div class="progressbar-widgets">
                         <div class="media media-widgets">
                           <div class="media-body">
-                            <p class="mb-0">Balance</p>
-                            <h3 class="mt-0 mb-0 f-w-600"><span class="counter">{{ new_customers_count }}</span><span><i class="font-primary"
+                            <p class="mb-0">Cost</p>
+                            <h3 class="mt-0 mb-0 f-w-600"><span class="counter" id="cost">{{ user_bill.bill }}</span><span><i class="font-primary"
                                   data-feather="trending-up"></i></span></h3>
                           </div>
                         </div>
                         <div class="progress sm-progress-bar progress-animate">
-                          <div class="progress-gradient-primary" role="progressbar" style="width: {{new_customers_percentage}}%"
-                            aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"><span
-                              class="font-primary">{{ new_customers_percentage }} %</span><span class="animate-circle"></span></div>
+                          <div id="price_categ" class="progress-gradient-primary" role="progressbar" style=""
+                            aria-valuenow="1" aria-valuemin="1" aria-valuemax="8">
+                              <span class="font-primary" id="str_categ_value">%</span><span class="animate-circle"></span></div>
                         </div><span class="tag-content-primary tag-hover-effect"><i data-feather="trending-up">
                           </i></span>
                       </div>
@@ -88,27 +90,82 @@
           </div>
         </div>
       </div>
+
     <script type="text/javascript">
-    function buildData() {
-        console.log("xxxxxx")
-       var myHeaders = new Headers();
-       myHeaders.append("Authorization", "Token 77f1a3ae550d226109b156df1ff689b2bd5c3bf3");
 
-        var formdata = new FormData();
-
-        var requestOptions = {
-          method: 'GET',
-          headers: myHeaders,
-          redirect: 'follow'
-        };
-
-    fetch("https://dcmonitor-dcm.herokuapp.com/api/bill", requestOptions)
-      .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error));
-
+    function categ_max_value(categ){
+        switch (categ) {
+            case 1:
+                return 50;
+                break;
+            case 2:
+                return 100;
+                break;
+            case 3:
+                return 200;
+                break;
+            case 4:
+                return 350;
+                break;
+            case 5:
+                return 650;
+                break;
+            case 6:
+                return 1000;
+                break;
+            case 7:
+                return 1000;
+                break;
         }
-        buildData()
+    }
+
+
+    cost = document.getElementById("cost")
+    price_categ = document.getElementById("price_categ")
+    gateg_value = document.getElementById("str_categ_value")
+
+    consmption = document.getElementById("consmption")
+    str_cons_value = document.getElementById("str_cons_value")
+    cons_progress = document.getElementById("cons_progress")
+
+
+
+
+    function f() {
+        fetch('{% url 'api_bill' %}')
+        .then((response) => {
+        return response.json();
+        })
+        .then((data) => {
+
+        cost.innerHTML = data['bill'].bill;
+
+
+        let categ = data['bill'].price_category;
+        price_categ.setAttribute("aria-valuenow",categ );
+        price_categ.setAttribute("style", "width:"+(categ / 8)*100+"%");
+        str_categ_value.innerHTML = categ ;
+
+        let consumption = data['bill'].consumption;
+        let categ_x_value = categ_max_value(categ)
+        let con_persentage  = 100
+        if (categ <= 6){
+            con_persentage = (consumption/categ_x_value) * 100
+        }
+        consmption.innerHTML = consumption;
+        str_cons_value.innerHTML = con_persentage + "%"
+        cons_progress.setAttribute("aria-valuenow", consumption)
+        cons_progress.setAttribute("aria-valuemax", ""+categ_x_value)
+        cons_progress.setAttribute("style", "width:"+ con_persentage +"%");
+
+        delete data
+        });
+    }
+    setInterval(f, 1000);
+
+
+
+
     </script>
 
 {% endblock %}

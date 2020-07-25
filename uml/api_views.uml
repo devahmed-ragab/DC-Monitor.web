@@ -3,128 +3,128 @@
   <ID>Python</ID>
   <OriginalElement>#/Users/apple/work/DCmonitor/API/views.py</OriginalElement>
   <nodes>
-    <node x="1284.0374564459926" y="492.0">API.views.ClintSerializerView</node>
-    <node x="84.0" y="318.0">API.views.CustomAuthToken</node>
-    <node x="1484.0374564459926" y="87.0">rest_framework.viewsets.ViewSetMixin</node>
-    <node x="1856.0374564459926" y="492.0">API.views.ApplianceCategorySerializerView</node>
-    <node x="2160.0374564459926" y="87.0">rest_framework.mixins.RetrieveModelMixin</node>
-    <node x="365.6358885017421" y="87.0">django.views.generic.base.View</node>
-    <node x="1566.0374564459926" y="492.0">API.views.SellerSerializerView</node>
-    <node x="1822.0374564459926" y="87.0">rest_framework.mixins.ListModelMixin</node>
-    <node x="0.0" y="241.0">rest_framework.authtoken.views.ObtainAuthToken</node>
-    <node x="2476.0374564459926" y="492.0">API.views.UserSerializerView</node>
-    <node x="2530.0374564459926" y="87.0">rest_framework.mixins.UpdateModelMixin</node>
-    <node x="1999.0374564459926" y="405.0">rest_framework.viewsets.ModelViewSet</node>
-    <node x="2884.0374564459926" y="87.0">rest_framework.mixins.DestroyModelMixin</node>
-    <node x="373.6358885017421" y="164.0">rest_framework.views.APIView</node>
-    <node x="1392.5374564459926" y="318.0">rest_framework.viewsets.GenericViewSet</node>
-    <node x="1939.3199767711965" y="0.0">object</node>
-    <node x="2234.0374564459926" y="492.0">API.views.SmartMeterView</node>
-    <node x="418.0" y="241.0">API.views.BillAPIView</node>
-    <node x="692.5" y="492.0">API.views.UserCreateAPIView</node>
-    <node x="652.5" y="405.0">rest_framework.generics.CreateAPIView</node>
-    <node x="636.0" y="241.0">rest_framework.generics.GenericAPIView</node>
-    <node x="2750.0374564459926" y="492.0">API.views.AppliancesSerializerView</node>
-    <node x="913.8025551684087" y="318.0">rest_framework.mixins.CreateModelMixin</node>
+    <node x="488.0000000000001" y="492.0">API.views.ClintSerializerView</node>
+    <node x="1424.0000000000002" y="87.0">rest_framework.viewsets.ViewSetMixin</node>
+    <node x="2692.769163763066" y="318.0">API.views.CustomAuthToken</node>
+    <node x="1286.0000000000002" y="492.0">API.views.ApplianceCategorySerializerView</node>
+    <node x="354.0" y="87.0">rest_framework.mixins.RetrieveModelMixin</node>
+    <node x="2688.206445993031" y="87.0">django.views.generic.base.View</node>
+    <node x="724.0000000000002" y="87.0">rest_framework.mixins.ListModelMixin</node>
+    <node x="1664.0" y="492.0">API.views.SellerSerializerView</node>
+    <node x="2608.769163763066" y="241.0">rest_framework.authtoken.views.ObtainAuthToken</node>
+    <node x="770.0000000000001" y="492.0">API.views.UserSerializerView</node>
+    <node x="0.0" y="87.0">rest_framework.mixins.UpdateModelMixin</node>
+    <node x="899.0000000000002" y="405.0">rest_framework.viewsets.ModelViewSet</node>
+    <node x="1499.5000000000002" y="318.0">rest_framework.viewsets.GenericViewSet</node>
+    <node x="2696.206445993031" y="164.0">rest_framework.views.APIView</node>
+    <node x="1062.0000000000002" y="87.0">rest_framework.mixins.DestroyModelMixin</node>
+    <node x="1190.034552845528" y="0.0">object</node>
+    <node x="3026.769163763066" y="241.0">API.views.BillAPIView</node>
+    <node x="1044.0" y="492.0">API.views.SmartMeterView</node>
+    <node x="2286.269163763066" y="492.0">API.views.UserCreateAPIView</node>
+    <node x="2246.269163763066" y="405.0">rest_framework.generics.CreateAPIView</node>
+    <node x="2254.769163763066" y="241.0">rest_framework.generics.GenericAPIView</node>
+    <node x="1976.0397793263646" y="318.0">rest_framework.mixins.CreateModelMixin</node>
+    <node x="166.0" y="492.0">API.views.AppliancesSerializerView</node>
   </nodes>
   <notes />
   <edges>
     <edge source="rest_framework.viewsets.ModelViewSet" target="rest_framework.mixins.UpdateModelMixin">
-      <point x="79.5" y="-13.5" />
-      <point x="2237.5374564459926" y="375.0" />
-      <point x="2697.0374564459926" y="375.0" />
+      <point x="-132.5" y="-13.5" />
+      <point x="925.5000000000002" y="385.0" />
+      <point x="167.0" y="385.0" />
       <point x="0.0" y="13.5" />
     </edge>
     <edge source="rest_framework.mixins.CreateModelMixin" target="object">
       <point x="0.0" y="-13.5" />
-      <point x="1080.8025551684086" y="57.0" />
-      <point x="1956.0342624854823" y="57.0" />
-      <point x="-22.28571428571422" y="13.5" />
+      <point x="2143.0397793263646" y="57.0" />
+      <point x="1251.3202671312422" y="57.0" />
+      <point x="22.28571428571422" y="13.5" />
     </edge>
     <edge source="API.views.SmartMeterView" target="rest_framework.viewsets.ModelViewSet">
       <point x="0.0" y="-13.5" />
-      <point x="2345.0374564459926" y="472.0" />
-      <point x="2184.5374564459926" y="472.0" />
+      <point x="1155.0" y="472.0" />
+      <point x="1084.5000000000002" y="472.0" />
       <point x="26.5" y="13.5" />
-    </edge>
-    <edge source="rest_framework.viewsets.GenericViewSet" target="rest_framework.generics.GenericAPIView">
-      <point x="-83.5" y="-13.5" />
-      <point x="1476.0374564459926" y="293.0" />
-      <point x="886.5" y="293.0" />
-      <point x="83.5" y="13.5" />
     </edge>
     <edge source="API.views.CustomAuthToken" target="rest_framework.authtoken.views.ObtainAuthToken">
       <point x="0.0" y="-13.5" />
       <point x="0.0" y="13.5" />
     </edge>
+    <edge source="rest_framework.viewsets.GenericViewSet" target="rest_framework.generics.GenericAPIView">
+      <point x="83.5" y="-13.5" />
+      <point x="1750.0000000000002" y="293.0" />
+      <point x="2338.269163763066" y="293.0" />
+      <point x="-83.5" y="13.5" />
+    </edge>
     <edge source="rest_framework.viewsets.ModelViewSet" target="rest_framework.viewsets.GenericViewSet">
-      <point x="-79.5" y="-13.5" />
-      <point x="2078.5374564459926" y="375.0" />
-      <point x="1559.5374564459926" y="375.0" />
+      <point x="79.5" y="-13.5" />
+      <point x="1137.5000000000002" y="375.0" />
+      <point x="1666.5000000000002" y="375.0" />
       <point x="0.0" y="13.5" />
     </edge>
     <edge source="rest_framework.generics.GenericAPIView" target="rest_framework.views.APIView">
       <point x="0.0" y="-13.5" />
-      <point x="803.0" y="216.0" />
-      <point x="585.3025551684086" y="216.0" />
-      <point x="84.66666666666652" y="13.5" />
+      <point x="2421.769163763066" y="216.0" />
+      <point x="2738.5397793263646" y="216.0" />
+      <point x="-84.66666666666652" y="13.5" />
     </edge>
     <edge source="rest_framework.viewsets.GenericViewSet" target="rest_framework.viewsets.ViewSetMixin">
-      <point x="83.5" y="-13.5" />
+      <point x="-83.5" y="-13.5" />
       <point x="0.0" y="13.5" />
     </edge>
     <edge source="rest_framework.viewsets.ModelViewSet" target="rest_framework.mixins.DestroyModelMixin">
-      <point x="132.5" y="-13.5" />
-      <point x="2290.5374564459926" y="385.0" />
-      <point x="3055.0374564459926" y="385.0" />
+      <point x="26.5" y="-13.5" />
+      <point x="1084.5000000000002" y="365.0" />
+      <point x="1233.0000000000002" y="365.0" />
       <point x="0.0" y="13.5" />
     </edge>
     <edge source="rest_framework.mixins.DestroyModelMixin" target="object">
       <point x="0.0" y="-13.5" />
-      <point x="3055.0374564459926" y="47.0" />
-      <point x="2011.7485481997678" y="47.0" />
-      <point x="33.42857142857133" y="13.5" />
+      <point x="1233.0000000000002" y="67.0" />
+      <point x="1229.034552845528" y="67.0" />
+      <point x="0.0" y="13.5" />
     </edge>
     <edge source="rest_framework.viewsets.ViewSetMixin" target="object">
       <point x="0.0" y="-13.5" />
-      <point x="1643.0374564459926" y="67.0" />
-      <point x="1967.1771196283394" y="67.0" />
-      <point x="-11.14285714285711" y="13.5" />
+      <point x="1583.0000000000002" y="67.0" />
+      <point x="1240.177409988385" y="67.0" />
+      <point x="11.14285714285711" y="13.5" />
     </edge>
     <edge source="django.views.generic.base.View" target="object">
       <point x="0.0" y="-13.5" />
-      <point x="500.6358885017421" y="47.0" />
-      <point x="1944.8914053426251" y="47.0" />
-      <point x="-33.42857142857133" y="13.5" />
+      <point x="2823.206445993031" y="47.0" />
+      <point x="1262.4631242740993" y="47.0" />
+      <point x="33.42857142857133" y="13.5" />
     </edge>
     <edge source="API.views.SellerSerializerView" target="rest_framework.viewsets.ModelViewSet">
       <point x="0.0" y="-13.5" />
-      <point x="1701.0374564459926" y="462.0" />
-      <point x="2078.5374564459926" y="462.0" />
-      <point x="-79.5" y="13.5" />
+      <point x="1799.0" y="452.0" />
+      <point x="1190.5000000000002" y="452.0" />
+      <point x="132.5" y="13.5" />
     </edge>
     <edge source="API.views.BillAPIView" target="rest_framework.views.APIView">
       <point x="0.0" y="-13.5" />
-      <point x="517.0" y="216.0" />
-      <point x="500.6358885017421" y="216.0" />
-      <point x="0.0" y="13.5" />
+      <point x="3125.769163763066" y="216.0" />
+      <point x="2907.8731126596977" y="216.0" />
+      <point x="84.66666666666652" y="13.5" />
     </edge>
     <edge source="rest_framework.viewsets.ModelViewSet" target="rest_framework.mixins.CreateModelMixin">
-      <point x="-132.5" y="-13.5" />
-      <point x="2025.5374564459926" y="385.0" />
-      <point x="1164.3025551684086" y="385.0" />
-      <point x="83.5" y="13.5" />
+      <point x="132.5" y="-13.5" />
+      <point x="1190.5000000000002" y="385.0" />
+      <point x="2059.5397793263646" y="385.0" />
+      <point x="-83.5" y="13.5" />
     </edge>
     <edge source="rest_framework.mixins.UpdateModelMixin" target="object">
       <point x="0.0" y="-13.5" />
-      <point x="2697.0374564459926" y="57.0" />
-      <point x="2000.6056910569107" y="57.0" />
-      <point x="22.28571428571422" y="13.5" />
+      <point x="167.0" y="47.0" />
+      <point x="1195.6059814169566" y="47.0" />
+      <point x="-33.42857142857133" y="13.5" />
     </edge>
     <edge source="rest_framework.viewsets.ModelViewSet" target="rest_framework.mixins.ListModelMixin">
       <point x="-26.5" y="-13.5" />
-      <point x="2131.5374564459926" y="365.0" />
-      <point x="1981.0374564459926" y="365.0" />
+      <point x="1031.5000000000002" y="365.0" />
+      <point x="883.0000000000002" y="365.0" />
       <point x="0.0" y="13.5" />
     </edge>
     <edge source="API.views.UserCreateAPIView" target="rest_framework.generics.CreateAPIView">
@@ -133,70 +133,70 @@
     </edge>
     <edge source="API.views.ApplianceCategorySerializerView" target="rest_framework.viewsets.ModelViewSet">
       <point x="0.0" y="-13.5" />
-      <point x="2035.0374564459926" y="472.0" />
-      <point x="2131.5374564459926" y="472.0" />
-      <point x="-26.5" y="13.5" />
-    </edge>
-    <edge source="API.views.UserSerializerView" target="rest_framework.viewsets.ModelViewSet">
-      <point x="0.0" y="-13.5" />
-      <point x="2603.0374564459926" y="462.0" />
-      <point x="2237.5374564459926" y="462.0" />
+      <point x="1465.0000000000002" y="462.0" />
+      <point x="1137.5000000000002" y="462.0" />
       <point x="79.5" y="13.5" />
     </edge>
+    <edge source="API.views.UserSerializerView" target="rest_framework.viewsets.ModelViewSet">
+      <point x="-1.1368683772161603E-13" y="-13.5" />
+      <point x="897.0" y="472.0" />
+      <point x="1031.5000000000002" y="472.0" />
+      <point x="-26.5" y="13.5" />
+    </edge>
     <edge source="rest_framework.generics.CreateAPIView" target="rest_framework.generics.GenericAPIView">
-      <point x="-81.5" y="-13.5" />
-      <point x="734.0" y="385.0" />
-      <point x="719.5" y="385.0" />
-      <point x="-83.5" y="13.5" />
+      <point x="81.5" y="-13.5" />
+      <point x="2490.769163763066" y="385.0" />
+      <point x="2505.269163763066" y="385.0" />
+      <point x="83.5" y="13.5" />
+    </edge>
+    <edge source="API.views.ClintSerializerView" target="rest_framework.viewsets.ModelViewSet">
+      <point x="0.0" y="-13.5" />
+      <point x="619.0000000000001" y="462.0" />
+      <point x="978.5000000000002" y="462.0" />
+      <point x="-79.5" y="13.5" />
     </edge>
     <edge source="rest_framework.views.APIView" target="django.views.generic.base.View">
       <point x="0.0" y="-13.5" />
       <point x="0.0" y="13.5" />
     </edge>
-    <edge source="API.views.ClintSerializerView" target="rest_framework.viewsets.ModelViewSet">
-      <point x="0.0" y="-13.5" />
-      <point x="1415.0374564459926" y="452.0" />
-      <point x="2025.5374564459926" y="452.0" />
-      <point x="-132.5" y="13.5" />
-    </edge>
     <edge source="rest_framework.mixins.RetrieveModelMixin" target="object">
       <point x="0.0" y="-13.5" />
-      <point x="2335.0374564459926" y="67.0" />
-      <point x="1989.4628339140536" y="67.0" />
-      <point x="11.14285714285711" y="13.5" />
+      <point x="529.0" y="57.0" />
+      <point x="1206.7488385598137" y="57.0" />
+      <point x="-22.28571428571422" y="13.5" />
     </edge>
     <edge source="API.views.AppliancesSerializerView" target="rest_framework.viewsets.ModelViewSet">
       <point x="0.0" y="-13.5" />
-      <point x="2901.0374564459926" y="452.0" />
-      <point x="2290.5374564459926" y="452.0" />
-      <point x="132.5" y="13.5" />
+      <point x="317.0" y="452.0" />
+      <point x="925.5000000000002" y="452.0" />
+      <point x="-132.5" y="13.5" />
     </edge>
     <edge source="rest_framework.generics.CreateAPIView" target="rest_framework.mixins.CreateModelMixin">
-      <point x="81.5" y="-13.5" />
-      <point x="897.0" y="385.0" />
-      <point x="997.3025551684087" y="385.0" />
-      <point x="-83.5" y="13.5" />
+      <point x="-81.5" y="-13.5" />
+      <point x="2327.769163763066" y="385.0" />
+      <point x="2226.5397793263646" y="385.0" />
+      <point x="83.5" y="13.5" />
     </edge>
     <edge source="rest_framework.authtoken.views.ObtainAuthToken" target="rest_framework.views.APIView">
       <point x="0.0" y="-13.5" />
-      <point x="199.0" y="216.0" />
-      <point x="415.9692218350756" y="216.0" />
-      <point x="-84.66666666666652" y="13.5" />
+      <point x="2807.769163763066" y="216.0" />
+      <point x="2823.206445993031" y="216.0" />
+      <point x="0.0" y="13.5" />
     </edge>
     <edge source="rest_framework.mixins.ListModelMixin" target="object">
       <point x="0.0" y="-13.5" />
-      <point x="1981.0374564459926" y="67.0" />
-      <point x="1978.3199767711965" y="67.0" />
-      <point x="0.0" y="13.5" />
+      <point x="883.0000000000002" y="67.0" />
+      <point x="1217.8916957026709" y="67.0" />
+      <point x="-11.14285714285711" y="13.5" />
     </edge>
     <edge source="rest_framework.viewsets.ModelViewSet" target="rest_framework.mixins.RetrieveModelMixin">
-      <point x="26.5" y="-13.5" />
-      <point x="2184.5374564459926" y="365.0" />
-      <point x="2335.0374564459926" y="365.0" />
+      <point x="-79.5" y="-13.5" />
+      <point x="978.5000000000002" y="375.0" />
+      <point x="529.0000000000001" y="375.0" />
       <point x="0.0" y="13.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.4288202955789606" x="994.4109420303813" y="610.8003674005015" />
+  <settings layout="Hierarchic Group" zoom="0.18698682579867004" x="1530.7428857504856" y="569.649596703239" />
   <SelectedNodes>
     <node>rest_framework.mixins.CreateModelMixin</node>
   </SelectedNodes>

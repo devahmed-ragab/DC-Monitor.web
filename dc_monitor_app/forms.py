@@ -1,21 +1,40 @@
+import form as form
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.core.validators import RegexValidator
 from django.contrib.auth.models import User
 from django.forms import ModelForm, Select
 from django import forms
+
 from .models import *
 
 
 class CreateUserForm(UserCreationForm):
+    username = forms.CharField(required=True)
+    first_name = forms.CharField(required=True)
+    last_name = forms.CharField()
+    email = forms.EmailField(required=True)
+
     class Meta:
         model = User
         fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
 
-    # def clean_terms_approval(self):
-    #     terms_approval = self.cleaned_data.get('terms_approval')
-    #     if terms_approval is not True:
-    #         raise forms.ValidationError("You must  Agree to Terms and conditions.")
-    #     return terms_approval
+    def clean_email(self, *args, **kwargs):
+        email = self.cleaned_data['email']
+        user_qs = User.objects.filter(email=email)
+        if user_qs:
+            print("This email has already registered")
+            raise forms.ValidationError('This email has already registered.')
+        return email
+
+    def clean_username(self, *args, **kwargs):
+        username = self.cleaned_data['username']
+        if len(username) < 3:
+            raise forms.ValidationError('user name is too short it must be more than 3 characters.')
+
+        # user_qs = User.objects.filter(email=email)
+        # if user_qs:
+        #     raise forms.ValidationError('This email has already registered.')
+        return username
 
 
 class EditUserForm(ModelForm):
@@ -43,14 +62,12 @@ class AddDeviceForm(ModelForm):
 class AddApplianceForm(ModelForm):
     class Meta:
         model = Appliances
-        # widgets = {
-        #     'seller': Select(),
-        # }
         fields = ['appliance_category', 'consumption_label', 'model', 'name',
                   'wattage', 'factory', 'price', 'seller', 'sub_category', 'warranty']
 
 
 class CreateClintForm(ModelForm):
+
     class Meta:
         model = Clint
         fields = ['prof_image', 'location', 'phone_number']
@@ -66,4 +83,3 @@ class EditCustomerPhoneForm(ModelForm):
     class Meta:
         model = Clint
         fields = ['phone_number']
-

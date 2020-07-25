@@ -4,9 +4,14 @@ from .views import *
 urlpatterns = [
     # path('dashboard/<str:pk>', dashboard_view, name='dashboard_view'),
     path('', dashboard_view, name='dashboard_view'),
+    path('user/', user_dashboard_view, name='user_dashboard'),
+    path('user/get', user_dashboard_ajax, name='ajax_dashboard'),
+
     path('login/', login_view, name='login_view'),
     path('registration/', registration_view, name='registration_view'),
     path('logout/', logout_view, name='logout'),
+    # path('registration/success/', logout_view, name='success_registration'),
+
 
     path('devices/', all_meters_view, name='all_meters'),
     path('devices/add', add_meter_view, name='add_meter'),
@@ -27,5 +32,5 @@ urlpatterns = [
     path('change-password/', change_password, name='change_password'),
 
 
-    path('user/', user_dashboard_view, name='user_dashboard'),
+
 ]
