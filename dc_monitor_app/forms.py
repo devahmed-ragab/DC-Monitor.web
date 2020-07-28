@@ -1,4 +1,3 @@
-
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.core.validators import RegexValidator
 from django.contrib.auth.models import User
@@ -51,13 +50,6 @@ class AddDeviceForm(ModelForm):
         model = SmartMeters
         fields = ['SER']
 
-    def clean_SER(self):
-        # validation on the form level it dosn't do it on the modle
-        SER = self.cleaned_data.get('SER')
-        if SER.count == 1234567890:
-            raise forms.ValidationError("1234567890 not allowed")
-        return SER
-
 
 class AddApplianceForm(ModelForm):
     class Meta:
@@ -67,7 +59,6 @@ class AddApplianceForm(ModelForm):
 
 
 class CreateClintForm(ModelForm):
-
     class Meta:
         model = Clint
         fields = ['prof_image', 'location', 'phone_number']
@@ -83,3 +74,42 @@ class EditCustomerPhoneForm(ModelForm):
     class Meta:
         model = Clint
         fields = ['phone_number']
+
+
+class EmailForm(ModelForm):
+    email = forms.EmailField(required=True)
+
+    def clean_email(self):
+        """
+        Cleaning email field
+        """
+        email = self.cleaned_data.get('email', None)
+
+        if email:
+            try:
+                email = User.objects.get(email=email)
+            except email.DoesNotExist():
+                raise forms.ValidationError('This email does not exist.')
+        return email
+
+
+class DeviceFormValidation(forms.Form):
+    SER = models.CharField(
+        validators=[RegexValidator(regex='^.{10}$', message='Length has to be 10', code='nomatch')])
+
+    # class Meta:
+    #     model = SmartMeters
+    #     fields = ['SER', 'user']
+
+    def clean_SER(self):
+        SER = self.cleaned_data.get('SER', None)
+        if SER:
+            try:
+                SER = SmartMeters.objects.get(SER=SER)
+            except SmartMeters.DoesNotExist():
+                raise forms.ValidationError('This Smart Meter does not exist.')
+                print("This Smart Meter does not exist")
+            if SER.user:
+                raise forms.ValidationError('This Smart Meter already registered.')
+                print("This Smart Meter already registered")
+        return SER

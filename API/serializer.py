@@ -27,7 +27,6 @@ from dc_monitor_app.models import (
 
 
 class ClintSerializer(ModelSerializer):
-
     class Meta:
         model = Clint
         fields = ['location', 'date_created', 'phone_number', 'prof_image']
@@ -123,6 +122,12 @@ class UserProfileSerializer(ModelSerializer):
                 'blank': True
             }
         }
+
+
+class SERSerializer(ModelSerializer):
+    class Meta:
+        model = SmartMeters
+        fields = ['SER', 'user']
 
 
 class PasswordSerializer(ModelSerializer):

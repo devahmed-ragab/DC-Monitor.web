@@ -26,7 +26,7 @@
 
               <div class="card-header">
                   {% block header %}
-                <h4 class="card-title mb-0">Add New Tool</h4>
+                <h4 class="card-title mb-0">Add New Meter</h4>
                       {% endblock %}
                 <div class="card-options"><a class="card-options-collapse" href="#" data-toggle="card-collapse">
                     <i class="fe fe-chevron-up"></i></a><a class="card-options-remove" href="#" data-toggle="card-remove">
@@ -37,7 +37,7 @@
                   <div class="col-sm-12 col-md-12">
                     <div class="form-group">
                       <label for= "SER" class="form-label">Serial Number</label>
-                         {% render_field form.SER  minlength="10" maxlength="10"  placeholder="Serianl Number"   class="form-control" id="SER" name="SER" %}
+                        <input  minlength="10" maxlength="10"  placeholder="Serianl Number"   class="form-control" id="SER" name="SER" >
                     </div>
                   </div>
                 </div>

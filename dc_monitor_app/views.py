@@ -11,9 +11,6 @@ from .decorators import *
 from .forms import *
 from .models import Clint
 
-from django.http import HttpResponse, JsonResponse
-from django.views import View
-
 
 def percentage(on_devices, all_devices):
     try:
@@ -55,12 +52,13 @@ def registration_view(request):
             form_r.save()
             user_name = form_r.cleaned_data.get('username')
             messages.success(request, 'Account successfully created ' + user_name)
-            return render(request, 'dc_monitor_app/registraion/register_success.html')
+            return render(request, 'dc_monitor_app/registraion/email-verify.html')
 
     context = {"form": form_r}
     return render(request, 'dc_monitor_app/registraion/registration_page.html', context)
 
 
+@login_required(login_url='login_view')
 @allowed_groups(groups=['user', 'superadmin'])
 def logout_view(request):
     logout(request)
@@ -80,9 +78,6 @@ def dashboard_view(request):
     new_customers = users.filter(date_created__gte=days_before_30).count()
     new_customers_percentage = percentage(new_customers, users_count)
 
-    # active_users = users.filter(is_active=True).count()
-    # active_users_percentage = (active_users / users_count) * 100
-
     context = {
         'users_count': users_count,
         'devices_num': devices_num,
@@ -90,16 +85,12 @@ def dashboard_view(request):
         'working_devices': working_devices,
         'new_customers_percentage': new_customers_percentage
     }
-    print(context)
-
     return render(request, 'dc_monitor_app/admin/dashboard.html', context)
 
 
 @login_required(login_url='login_view')
 @allowed_groups(groups=['user'])
 def user_dashboard_view(request):
-    print('user_dashboard_view : ')
-    # todo show data when user click the card
     clint = request.user.clint
     devices = clint.smartmeters_set
     working_dev = devices.filter(device_status=1)
@@ -109,11 +100,6 @@ def user_dashboard_view(request):
         clint_bill = clint.bill_set.order_by('-conception_date')[0]
     except IndexError:
         clint_bill = 0
-        print(f"No bill for clint {clint}.")
-    m = clint.smartmeters_set.all()
-    for s in m:
-        print(f" smart {s.SER} = {s.consumption}")
-        print(f" smart {s.SER} = {s.get_status()} .")
 
     context = {
         'devices': devices,
@@ -163,13 +149,13 @@ def add_meter_view(request):
 
 
 @login_required(login_url='login_view')
-@allowed_groups(groups=['superadmin'])
+@allowed_groups(groups=['superadmin', 'user'])
 def all_meters_view(request):
+    if request.user.groups.get() == 'user':
+        return redirect('configuration')
     devices = SmartMeters.objects.all()
-    counter = 0
     context = {
-        'devices': devices,
-        'counter': counter
+        'devices': devices
     }
     return render(request, 'dc_monitor_app/admin/all_tools_page.html', context)
 
@@ -177,6 +163,7 @@ def all_meters_view(request):
 @login_required(login_url='login_view')
 @allowed_groups(groups=['superadmin'])
 def edit_meter(request, SER):
+    # todo add user edite tool
     print("editing tool")
     tool = SmartMeters.objects.get(SER=SER)
     form = AddDeviceForm(instance=tool)
@@ -227,9 +214,9 @@ def delete_customers_view(request, id):
 @allowed_groups(groups=['superadmin'])
 def edit_customers_view(request, id):
     customer = get_object_or_404(Clint, id=id)
-    user = customer.user
     devices = customer.smartmeters_set.first()
-    print(devices)
+    user = customer.user
+
     phone_form = EditCustomerPhoneForm(instance=customer)
     user_form = EditCustomerUserForm(instance=user)
     device_form = AddDeviceForm(instance=devices)
@@ -241,7 +228,6 @@ def edit_customers_view(request, id):
         if user_form.is_valid and phone_form.is_valid and device_form.is_valid:
             user_form.save()
             phone_form.save()
-            print(f'customer {user.first_name} has been updated.')
             return redirect(all_customers_view)
 
     context = {
@@ -324,6 +310,8 @@ def delete_meter(request, SER):
     device = SmartMeters.objects.get(SER=SER)
     if request.method == 'POST':
         device.delete()
+        if request.user.groups.get() == 'user':
+            return redirect('configuration')
         return redirect('all_meters')
 
     context = {
@@ -383,3 +371,74 @@ def change_password(request):
     return render(request, 'dc_monitor_app/user/change_password_page.html', {
         'form': form
     })
+
+
+@login_required(login_url='login_view')
+@allowed_groups(groups=['user', 'superadmin'])
+def calc_wattage_view(request):
+    context = {}
+    return render(request, 'dc_monitor_app/user/featuers/wattage_calculation.html', context)
+
+
+@login_required(login_url='login_view')
+@allowed_groups(groups=['user', 'superadmin'])
+def advices_timeline_view(request):
+    context = {}
+    return render(request, 'dc_monitor_app/user/featuers/timeline.html', context)
+
+
+@login_required(login_url='login_view')
+@allowed_groups(groups=['user', 'superadmin'])
+def configuration_view(request):
+    user = request.user.clint
+    devices = user.smartmeters_set.all()
+    context = {
+        'devices': devices
+    }
+    return render(request, 'dc_monitor_app/user/configration.html', context)
+
+
+@login_required(login_url='login_view')
+@allowed_groups(groups=['user'])
+def consumption_analyses(request):
+    user = request.user.clint
+    devices = user.smartmeters_set.all()
+    context = {
+        "clint": user,
+        'devices': devices
+    }
+    return render(request, 'dc_monitor_app/user/featuers/consmption_analysis.html', context)
+
+
+@unauthenticated_user
+def reset_password(request):
+    if request.method == 'POST':
+        form = EmailForm(request.POST)
+        if form.is_valid():
+            return render(request, 'dc_monitor_app/registraion/email-verify.html')
+
+    context = {
+    }
+    return render(request, 'dc_monitor_app/registraion/forgat_password.html', context)
+
+
+# meter
+@login_required(login_url='login_view')
+@allowed_groups(groups=['user'])
+def user_meter_add(request):
+    if request.method == 'POST':
+        print(f"post : {request.method}")
+        form = DeviceFormValidation(request.POST)
+        print(f"form data: {form.data} ")
+        if form.is_valid():
+            print("SER valid form")
+            SER = request.POST.get('SER')
+            meter = SmartMeters.objects.get(SER=SER)
+            meter.user = request.user.clint
+            meter.save()
+            print(f'valid SER  and saver for user {request.user.clint}')
+            return redirect('configuration')
+
+        return redirect('configuration')
+
+    return render(request, 'dc_monitor_app/user/featuers/user_add_meter.html')

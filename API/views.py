@@ -4,6 +4,7 @@ from django.utils.datetime_safe import datetime
 from rest_framework import viewsets, status, mixins
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.decorators import action, permission_classes
+from rest_framework.exceptions import ValidationError
 from rest_framework.parsers import FileUploadParser
 from rest_framework.settings import api_settings
 from django.utils.decorators import method_decorator
@@ -27,7 +28,7 @@ from API.serializer import (
     AppliancesSerializer,
     UserClintValidatedSerializer,
     UserProfileSerializer,
-    PasswordSerializer, ImageSerializer)
+    PasswordSerializer, ImageSerializer, SERSerializer)
 from dc_monitor_app.models import *
 
 
@@ -35,6 +36,7 @@ class CustomAuthToken(ObtainAuthToken):
     permission_classes = [AllowAny, ]
 
     def post(self, request, *args, **kwargs):
+
         serializer = self.serializer_class(data=request.data,
                                            context={'request': request})
         serializer.is_valid(raise_exception=True)
@@ -87,15 +89,15 @@ class UserDetailView(APIView):
         return Response(serializer.data)
 
     def put(self, request, format=None):
-        print(f"update profile for clint :{request.user.clint} .. ")
         user = request.user
-        print(user)
+
         user_serializer = UserProfileSerializer(user, data=request.data)
         clint_serializer = ClintSerializer(user.clint, data=request.data)
+
         if user_serializer.is_valid() and clint_serializer.is_valid():
-            print("UserDetailView.put : valid profile  ")
             user_serializer.save()
             clint_serializer.save()
+
             return Response({'user': user_serializer.data,
                              'clint': clint_serializer.data
                              }, status=status.HTTP_200_OK)
@@ -123,33 +125,26 @@ class UserImageDetailView(APIView):
             return Response(serializer.data, status=200)
         return Response(serializer.errors, status=400)
 
-    # @permission_classes((AllowAny,))
-    # def post(self, request, format=None):
-    #     user_serializer = UserSerializer(request.data)
-    #     if user_serializer.is_valid():
-    #         user_serializer.save()
-    #         return Response(user_serializer.data, self=status.HTTP_200_OK)
-    #     return Response(user_serializer.errors)
 
-    # def post(self, request, format=None):
-    #     try:
-    #         user = User.objects.get(id=request.user.id)
-    #     except User.DoesNotExist:
-    #         return Response(data='no such user!', status=status.HTTP_400_BAD_REQUEST)
-    #     profile_user = Clint.objects.filter(user=request.user)
-    #     clint_serializer = ClintSerializer(profile_user)
-    #     user_serializer = UserProfileSerializer(user, data=request.data)
-    #
-    #     if user_serializer.is_valid() and clint_serializer.is_valid():
-    #         user_serializer.save()
-    #         clint_serializer.save()
-    #         return Response(user_serializer.data, self=status.HTTP_200_OK)
-    #     return Response(user_serializer.errors)
-    #
-    # def delete(self, request, pk, format=None):
-    #     user = request.user
-    #     user.delete()
-    #     return Response(status=status.HTTP_204_NO_CONTENT)
+class UserAddSER(APIView):
+    def put(self, request):
+        user = request.user.clint
+        SER = request.data['SER']
+        try:
+            smartmeter_qs = SmartMeters.objects.get(SER=SER)
+        except SmartMeters.DoesNotExist:
+            raise ValidationError('This SER dose not exist.')
+
+        if smartmeter_qs.user:
+            raise ValidationError('This SER dose has a user.')
+
+        serializer = SERSerializer(smartmeter_qs, data=request.data)
+        if serializer.is_valid():
+            print("valid : SER Uploaded successfully ")
+            smartmeter_qs.user = user
+            serializer.save()
+            return Response(serializer.data, status=200)
+        return Response(serializer.errors, status=400)
 
 
 class SmartMeterView(viewsets.ModelViewSet):

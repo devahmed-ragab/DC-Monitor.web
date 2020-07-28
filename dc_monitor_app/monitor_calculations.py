@@ -1,6 +1,5 @@
 def calc_price_categ(consumption):
     bill = 0.0
-
     if consumption < 51:
         return 1
     elif 51 <= consumption <= 100:  # 49kwh

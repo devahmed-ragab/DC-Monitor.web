@@ -7,9 +7,20 @@ urlpatterns = [
     path('user/', user_dashboard_view, name='user_dashboard'),
     path('user/get', user_dashboard_ajax, name='ajax_dashboard'),
 
+
+    path('user/calculator', calc_wattage_view, name='wattage_calculator'),
+    path('user/timeline', advices_timeline_view, name='timeline'),
+
+    path('user/config',  configuration_view, name='configuration'),
+    path('user/analysis',  consumption_analyses, name='cons_analysis'),
+    path('user/meter/add',  user_meter_add, name='user_meter_add'),
+
+
     path('login/', login_view, name='login_view'),
     path('registration/', registration_view, name='registration_view'),
     path('logout/', logout_view, name='logout'),
+    path('restPassword/', reset_password, name='reset_password'),
+
     # path('registration/success/', logout_view, name='success_registration'),
 
 
@@ -30,6 +41,7 @@ urlpatterns = [
     path('profile/', profile_view, name='profile'),
     path('edit-profile/', edit_profile_view, name='edit_profile'),
     path('change-password/', change_password, name='change_password'),
+
 
 
 

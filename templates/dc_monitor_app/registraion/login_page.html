@@ -46,7 +46,7 @@
                                                 </div>
                                                         <div class="col-md-6">
                                                             <div class="text-md-right mt-3 mt-md-0">
-                                                                <a href="recover.html" class="text-muted">
+                                                                <a href="{% url 'reset_password' %}" class="text-muted">
                                                                     {% icon  'lock ' %}   Forgot your password?</a>
                                                             </div>
                                                         </div>
@@ -66,8 +66,14 @@
                                             </div>
                                         </div>
                                     </form>
+
+
                                      {% for m in messages %}
-                                      <p class="message">{{ m }}</p>
+                                      <div class="alert alert-danger" role="alert">
+                                            <div class="form-group">
+                                            <label class="form-label">{{ m }}</label>
+                                        </div>
+                                        </div>
                                       {% endfor %}
                                 </div>
                             </div>

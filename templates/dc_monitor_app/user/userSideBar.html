@@ -3,21 +3,26 @@
 
 {% block userSidebar %}
 
-
     <li>
         <a class="sidebar-header" href="#">
            <i data-feather="airplay"></i>
-            <span>Meter</span></a>
+            <span>Meter</span>
+        <i class="fa fa-angle-right pull-right"></i>
+        </a>
         <ul class="sidebar-submenu">
-            <li><a href="{% url 'add_appliance_view' %}">Configuration</a></li>
-             <li><a href="{% url 'add_appliance_view' %}">Consumption analysis</a></li>
+            <li><a href="{% url 'user_meter_add' %}">Add Meter</a></li>
+            <li><a href="{% url 'configuration' %}">Configuration</a></li>
+             <li><a href="{% url 'cons_analysis' %}">Consumption analysis</a></li>
+
         </ul>
     </li>
 
     <li>
         <a class="sidebar-header" href="#">
             <i data-feather="shopping-bag" ></i>
-            <span>Appliance</span></a>
+            <span>Appliance</span>
+        <i class="fa fa-angle-right pull-right"></i>
+        </a>
         <ul class="sidebar-submenu">
             <li><a href="{% url 'add_appliance_view' %}">My Appliance</a></li>
             <li><a href="{% url 'all_appliance_view' %}">Store</a></li>
@@ -27,15 +32,17 @@
      <li>
         <a class="sidebar-header"  href="#">
             <i data-feather="battery-charging" style="color: limegreen"></i>
-            <span>Saving</span></a>
+            <span>Saving</span>
+        <i class="fa fa-angle-right pull-right"></i>
+        </a>
         <ul class="sidebar-submenu">
-            <li><a href="{% url 'add_appliance_view' %}">Calculation</a></li>
-            <li><a href="{% url 'all_appliance_view' %}">General Advices</a></li>
+            <li><a href="{% url 'wattage_calculator' %}">Calculation</a></li>
+            <li><a href="{% url 'timeline' %}">General Advices</a></li>
         </ul>
     </li>
 
 
-    </script>
+
 
 {% endblock %}
 

@@ -18,7 +18,11 @@
                     <form method="POST">
                         {% csrf_token %}
                         {% block cancle %}
-                        <a class="btn brn-sm btn-primary" href="{{ item.get_back_form }}">Cancel</a>
+                            {% if request.user.groups.get == 'user' %}
+                                 <a class="btn brn-sm btn-primary" href="{% url 'configuration' %}">Cancel</a>
+                                {%else %}
+                                <a class="btn brn-sm btn-primary" href="{{ item.get_back_form }}">Cancel</a>
+                            {% endif %}
                             {% endblock %}
                         <input class="btn brn-sm btn-danger" type="submit" name="Delete">
                     </form>

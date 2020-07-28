@@ -40,6 +40,8 @@
     <link id="color" rel="stylesheet" href="{% static 'css/light-1.css' %}">
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+    {% block head %}
+    {% endblock %}
   </head>
   <body>
 
@@ -62,7 +64,6 @@
         {% include 'dc_monitor_app/user/userSideBar.html' %}
     {% endif %}
         {% block content %}
-
         {% endblock %}
     </div>
   {% include 'dc_monitor_app/footer.html' %}

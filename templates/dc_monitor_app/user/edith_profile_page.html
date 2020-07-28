@@ -84,14 +84,19 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <div class="form-group">
+
+                                        {% if clint_form.errors or user_form.errors %}
+                                        <div class="alert alert-danger" role="alert">
+                                            <div class="form-group">
                                             <label class="form-label">{{ clint_form.errors }}</label>
                                             <label class="form-label">{{ user_form.errors }}</label>
-
-
                                         </div>
-                                    </div>
+                                        </div>
+                                        {% endif %}
 
+
+
+                                    </div>
 
                                 </div>
                             </div>

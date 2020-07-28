@@ -1,0 +1,46 @@
+{% extends 'dc_monitor_app/registraion/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="account-pages my-5 pt-sm-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-center mb-5">
+                            <a href="" class="logo"><img src="{% static 'images/blueLogo.png' %}" height="75" alt="logo"></a>
+                            <h5 class="font-size-16 text-50 mb-4" style="color: #3051D3">To monitor your balance in electricity and know your consumption </h5>
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+
+                <div class="row justify-content-center">
+                    <div class="col-xl-5 col-sm-8">
+                        <div class="card">
+                            <div class="card-body p-4">
+                                <div class="p-2">
+                                    <form class="form-horizontal" action="POST">
+                                         {% csrf_token %}
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="alert  alert-dismissible" style="background-color: #3051D3;color: #fff;">
+                                                Please check your Email to<b> Verify your account </b>
+                                                </div>
+
+
+                                                <div class="mt-4 text-center">
+                                                    <a href="{% url 'login_view' %}" class="text-muted">{% icon 'user' %}<span>  </span>back to login</a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+            </div>
+        </div>
+{% endblock %}

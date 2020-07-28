@@ -1,0 +1,106 @@
+{% extends 'dc_monitor_app/base.html' %}
+{% load static  %}
+{% load icons %}
+{% block content %}
+ {% include 'dc_monitor_app/loader.html' %}
+
+     <div class="page-body">
+      <div class="container-fluid">
+            <div class="page-header">
+              <div class="row">
+                <div class="col-lg-6">
+                  <h3>Rationalize consumption</h3>
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">Tips to help you save on your electric bill</li>
+                  </ol>
+                </div>
+                <div class="col-lg-6">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Container-fluid starts-->
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h5>Tips</h5>
+                  </div>
+                  <div class="card-body">
+                    <!-- cd-timeline Start-->
+                    <section class="cd-container" id="cd-timeline">
+                      <div class="cd-timeline-block">
+                        <div class="cd-timeline-img cd-picture bg-primary"></div>
+                        <div class="cd-timeline-content">
+                          <h4>LED Bulbs</h4>
+                          <p class="m-0">LED’s are the most energy efficient option for light bulbs on the market right now. Currently, the upfront cost may be a bit higher than compact fluorescent lights (CFL), but the electricity savings and the lifetime of the bulb   will  make up for it.</p>
+                            </span>
+                        </div>
+                      </div>
+
+                      <div class="cd-timeline-block">
+                        <div class="cd-timeline-img cd-movie bg-secondary"></div>
+                        <div class="cd-timeline-content">
+                          <h4>Initiative<span class="digits"> </span></h4>
+
+                          <div class="embed-responsive embed-responsive-21by9 m-t-20">
+                            <iframe src="{{'https://www.youtube.com/embed/14klbr3wi4M'}}"  allowfullscreen=""></iframe>
+                          </div><span class="cd-date"></span>
+                        </div>
+                      </div>
+
+                      <div class="cd-timeline-block">
+                        <div class="cd-timeline-img cd-picture bg-success"></div>
+                        <div class="cd-timeline-content">
+                          <h4>Upgrade your laundry room<span class="digits"> </span></h4>
+                            <p class="m-0">Older appliances aren't as energy-efficient as they could be. For example,
+                                Energy Star estimates that on average a washer over 10 years old could cost you around $190 a year.</p></span>
+
+{#
+                        </span></span>
+                        </div>
+                      </div>
+
+                      <div class="cd-timeline-block">
+                        <div class="cd-timeline-img cd-location bg-info"></div>
+                        <div class="cd-timeline-content">
+                          <h4>Use motion to stop waste<span class="digits"></span></h4>
+                            <p class="m-0">If you're constantly following family members from room to room, turning off lights behind them, you need to update.
+                                One solution could be motion detectors, like GE's LED Plus lineup or Ring's smart outdoor lights. </p>
+{#                          <audio class="m-t-20" controls="">#}
+
+
+                        </div>
+                      </div>
+
+                      <div class="cd-timeline-block">
+                        <div class="cd-timeline-img cd-location bg-warning"></div>
+                        <div class="cd-timeline-content">
+                          <h4><span class="digits"></span></h4>
+                            <img class="img-fluid p-t-20" src="{% static 'images/energy_saving2.svg' %}" alt="">
+                        </div>
+                      </div>
+
+                      <div class="cd-timeline-block">
+                        <div class="cd-timeline-img cd-movie bg-danger"></div>
+                        <div class="cd-timeline-content">
+                         <h4>Go cold<span class="digits"></span></h4>
+                            <p class="m-0" >Roughly 75 percent of the energy required to do a load
+                                of laundry goes into heating the water. Using cold water saves energy</p>
+                        </div>
+                      </div>
+
+                    </section>
+                    <!-- cd-timeline Ends-->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Container-fluid ends                    -->
+        </div>
+
+     </div>
+{% endblock %}

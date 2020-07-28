@@ -27,13 +27,13 @@ def create_clint_signal(sender, instance, created, **kwargs):
 
 @receiver(post_save, sender=SmartMeters)
 def create_bill_signals(sender, instance, created, **kwargs):
-    # todo create new bill record for each user every 1 hour
     user = instance.user
     if user:
         all_meters = SmartMeters.objects.filter(user=user).aggregate(Sum('consumption'), Sum('conception_cost'))
         all_meters_consum = all_meters['consumption__sum']
         all_meters_cost = all_meters['conception_cost__sum']
         print(f"bill_signals: all_meters_consum = {all_meters_consum} km, \n all_meters_cost = {all_meters_cost}")
+        print(f"create_bill_signals : ")
         Bill.objects.update_or_create(user=user,
                                       defaults={
                                           'consumption': f"{all_meters_consum}",
