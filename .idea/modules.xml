@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/DCmonitor.iml" filepath="$PROJECT_DIR$/.idea/DCmonitor.iml" />
+      <module fileurl="file://$USER_HOME$/PycharmProjects/sim/sim.iml" filepath="$USER_HOME$/PycharmProjects/sim/sim.iml" />
     </modules>
   </component>
 </project>

@@ -21,5 +21,4 @@ urlpatterns = [
     path('user/profile', UserDetailView.as_view()),
     path('user/image', UserImageDetailView.as_view()),
     path('', include(router.urls))
-
 ]

@@ -127,6 +127,7 @@ class UserImageDetailView(APIView):
 
 
 class UserAddSER(APIView):
+
     def put(self, request):
         user = request.user.clint
         SER = request.data['SER']
@@ -141,7 +142,7 @@ class UserAddSER(APIView):
         serializer = SERSerializer(smartmeter_qs, data=request.data)
         if serializer.is_valid():
             print("valid : SER Uploaded successfully ")
-            smartmeter_qs.user = user
+            smartmeter_qs.user
             serializer.save()
             return Response(serializer.data, status=200)
         return Response(serializer.errors, status=400)

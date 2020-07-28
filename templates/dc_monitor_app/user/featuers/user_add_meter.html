@@ -47,7 +47,13 @@
                 <button class="btn btn-primary" type="submit">Add</button>
                       {% endblock %}
               </div>
-
+             {% for m in messages %}
+              <div class="alert alert-danger" role="alert">
+                  <div class="form-group">
+                    <label class="form-label">{{ m }}</label>
+                    </div>
+                    </div>
+                  {% endfor %}
             </form>
           </div>
         </div>

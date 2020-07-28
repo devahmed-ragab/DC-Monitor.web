@@ -1,4 +1,5 @@
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
+from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.contrib.auth.models import User
 from django.forms import ModelForm, Select
@@ -93,23 +94,23 @@ class EmailForm(ModelForm):
         return email
 
 
-class DeviceFormValidation(forms.Form):
+class DeviceFormValidation(ModelForm):
     SER = models.CharField(
         validators=[RegexValidator(regex='^.{10}$', message='Length has to be 10', code='nomatch')])
 
-    # class Meta:
-    #     model = SmartMeters
-    #     fields = ['SER', 'user']
+    class Meta:
+        model = SmartMeters
+        fields = ['SER', 'user']
 
     def clean_SER(self):
-        SER = self.cleaned_data.get('SER', None)
-        if SER:
-            try:
-                SER = SmartMeters.objects.get(SER=SER)
-            except SmartMeters.DoesNotExist():
-                raise forms.ValidationError('This Smart Meter does not exist.')
-                print("This Smart Meter does not exist")
-            if SER.user:
-                raise forms.ValidationError('This Smart Meter already registered.')
-                print("This Smart Meter already registered")
+        SER = self.cleaned_data.get('SER')
+
+        try:
+            SER = SmartMeters.objects.get(SER=SER)
+        except SmartMeters.DoesNotExist():
+            raise ValidationError('This Smart Meter does not exist.')
+            print("This Smart Meter does not exist")
+        if SER.user:
+            raise ValidationError('This Smart Meter already registered.')
+            print("This Smart Meter already registered")
         return SER

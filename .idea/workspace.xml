@@ -5,45 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef8ca716-dfe7-4fd8-8352-3293d013ce0e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/images/calc_wattage/Etawer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/calc_wattage/wattage-label.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/energy_saving2.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/moon-4606246_1920_6EPQMkO.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/moon-4606246_1920_D7lKDzq.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dc_monitor_app/loader.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dc_monitor_app/registraion/email-verify.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dc_monitor_app/registraion/forgat_password.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dc_monitor_app/user/configration.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dc_monitor_app/user/featuers/consmption_analysis.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dc_monitor_app/user/featuers/dumb.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dc_monitor_app/user/featuers/timeline.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dc_monitor_app/user/featuers/user_add_meter.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dc_monitor_app/user/featuers/wattage_calculation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/waattage_claculation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/DCmonitor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DCmonitor.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/serializer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/url.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dc_monitor_app/decorators.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/decorators.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dc_monitor_app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dc_monitor_app/monitor_calculations.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/monitor_calculations.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dc_monitor_app/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/signals.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dc_monitor_app/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/url.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dc_monitor_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/admin/add_tool_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/admin/add_tool_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/admin/all_tools_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/admin/all_tools_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/admin/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/admin/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/admin/delet_item.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/admin/delet_item.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/admin/edit_tool.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/admin/edit_tool.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/admin/profile_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/admin/profile_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/registraion/login_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/registraion/login_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/registraion/register_success.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/registraion/register_success.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/registraion/registration_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/registraion/registration_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/sidebar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/user/customer_form_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/user/customer_form_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/user/edith_profile_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/user/edith_profile_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/user/userSideBar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/user/userSideBar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/user/user_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/user/user_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/user/featuers/user_add_meter.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/user/featuers/user_add_meter.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -116,8 +86,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -276,7 +246,7 @@
       <workItem from="1595755235064" duration="399000" />
       <workItem from="1595756833664" duration="537000" />
       <workItem from="1595867077090" duration="133000" />
-      <workItem from="1595902644464" duration="5594000" />
+      <workItem from="1595902644464" duration="9524000" />
     </task>
     <servers />
   </component>

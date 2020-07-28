@@ -427,17 +427,20 @@ def reset_password(request):
 @allowed_groups(groups=['user'])
 def user_meter_add(request):
     if request.method == 'POST':
-        print(f"post : {request.method}")
-        form = DeviceFormValidation(request.POST)
-        print(f"form data: {form.data} ")
-        if form.is_valid():
-            print("SER valid form")
-            SER = request.POST.get('SER')
-            meter = SmartMeters.objects.get(SER=SER)
-            meter.user = request.user.clint
-            meter.save()
-            print(f'valid SER  and saver for user {request.user.clint}')
-            return redirect('configuration')
+        SER = request.POST.get('SER')
+        user = request.user.clint
+        try:
+            smartmeter_qs = SmartMeters.objects.get(SER=SER)
+        except SmartMeters.DoesNotExist:
+            messages.error(request, 'This SER dose not exist')
+            return redirect('user_meter_add')
+
+        if smartmeter_qs.user:
+            messages.error(request, 'This SER dose has a user.')
+            return redirect('user_meter_add')
+
+        smartmeter_qs.user = user
+        smartmeter_qs.save()
 
         return redirect('configuration')
 
