@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef8ca716-dfe7-4fd8-8352-3293d013ce0e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/API/waattage_claculation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/DCmonitor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DCmonitor.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/url.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dc_monitor_app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dc_monitor_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/user/featuers/user_add_meter.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/user/featuers/user_add_meter.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -246,7 +238,7 @@
       <workItem from="1595755235064" duration="399000" />
       <workItem from="1595756833664" duration="537000" />
       <workItem from="1595867077090" duration="133000" />
-      <workItem from="1595902644464" duration="9524000" />
+      <workItem from="1595902644464" duration="10645000" />
     </task>
     <servers />
   </component>
