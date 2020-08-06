@@ -20,5 +20,8 @@ urlpatterns = [
     path('bill', BillAPIView.as_view(), name='api_bill'),
     path('user/profile', UserDetailView.as_view()),
     path('user/image', UserImageDetailView.as_view()),
+    path('user/change/password', ChangePasswordView.as_view()),
+    path('user/calc', CalcWattageView.as_view(), name='watt_calculator'),
+
     path('', include(router.urls))
 ]

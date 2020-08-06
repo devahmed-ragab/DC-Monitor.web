@@ -6,7 +6,7 @@ from datetime import date, timedelta
 from django.contrib import messages
 from rest_framework import status
 from rest_framework.response import Response
-
+from .monitor_calculations import UnknownDevice
 from .decorators import *
 from .forms import *
 from .models import Clint
@@ -377,6 +377,21 @@ def change_password(request):
 @allowed_groups(groups=['user', 'superadmin'])
 def calc_wattage_view(request):
     context = {}
+    if request.method == 'POST':
+        wattage = request.POST.get('wattage')
+        hours = request.POST.get('hours')
+        days = request.POST.get('days')
+
+        device = UnknownDevice(wattage=float(wattage), hours=float(hours), days=float(days))
+        device_dic = device.price_dictionary()
+        context = {
+            'device': device,
+            'price_dictionary': device_dic
+        }
+        print(context)
+        print(device.category)
+
+
     return render(request, 'dc_monitor_app/user/featuers/wattage_calculation.html', context)
 
 
@@ -409,17 +424,17 @@ def consumption_analyses(request):
     }
     return render(request, 'dc_monitor_app/user/featuers/consmption_analysis.html', context)
 
-
-@unauthenticated_user
-def reset_password(request):
-    if request.method == 'POST':
-        form = EmailForm(request.POST)
-        if form.is_valid():
-            return render(request, 'dc_monitor_app/registraion/email-verify.html')
-
-    context = {
-    }
-    return render(request, 'dc_monitor_app/registraion/forgat_password.html', context)
+#
+# @unauthenticated_user
+# def reset_password(request):
+#     if request.method == 'POST':
+#         form = EmailForm(request.POST)
+#         if form.is_valid():
+#             return render(request, 'dc_monitor_app/registraion/email-verify.html')
+#
+#     context = {
+#     }
+#     return render(request, 'dc_monitor_app/registraion/forgat_password.html', context)
 
 
 # meter

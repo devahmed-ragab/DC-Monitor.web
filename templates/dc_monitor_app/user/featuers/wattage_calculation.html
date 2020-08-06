@@ -64,18 +64,19 @@
 
 <div class="row">
   <section class="container" class="mdi-format-vertical-align-center">
-    <form method="post" >
+    <form method="POST" >
+        {% csrf_token %}
         <h6 class="m-t-10"></h6><hr>
       <div class="form-row">
         <div class="col-7">
-          <input type="number" class="form-control" id="wattage" placeholder="Wattage">
+          <input type="number" class="form-control" id="wattage" name="wattage" placeholder="Wattage" required>
         </div>
 
         <div class="col">
-          <input type="number" class="form-control" id="hour" placeholder="Hours/day">
+          <input type="number" class="form-control" id="hours" name="hours" placeholder="Hours/day" required>
         </div>
         <div class="col">
-          <input type="number" class="form-control" id="days" placeholder="Days/Month">
+          <input type="number" class="form-control" id="days" name="days" placeholder="Days/Month" required>
         </div>
       </div>
         <br>
@@ -87,7 +88,51 @@
     </form>
   </section>
  </div>
+     <br>
   <!--                / form                                         -->
+
+     <div class="container-fluid">
+            <div class="row sass-top-cards">
+                {% for category_key, value in price_dictionary.items %}
+                  {% if category_key >= device.category %}
+
+                    <div class="col">
+                        <div class="card sass-widgets o-hidden">
+                          <div class="card-body p-0">
+                            <div class="media">
+                              <div class="media-body">
+                                <p class="f-w-600">Cost</p>
+                                <h2 class="f-w-600 mb-0">{{ value}}</h2>
+                              </div>
+                              <div class="setting-dot d-inline-block">
+                                <div class="setting-bg setting-bg-primary"><i class="fa fa-spin fa-cog font-primary"></i></div>
+                              </div>
+                            </div>
+                              {% if category_key == device.category %}
+                                 <div class="bg-gradient-success footer-shape">
+                                  {% else %}
+                                   <div class="bg-gradient-secondary footer-shape">
+                                  {% endif %}
+
+                              <div class="sass-footer">
+                                <p class="mb-0 d-inline-block mr-3">Price Category</p><span><span class="d-inline-block"><i class="fa fa-sort-up mr-4"></i></span></span>
+                                <p class="mb-0 d-inline-block b-l-primary pl-4 mr-3">{{ category_key }}</p><span class="down-arrow-align"><span class="d-inline-block"></span></span>
+                                <div class="small-sass">
+                                  <div class="small-sasschart flot-chart-container"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+     </div>
+
+
+     <!-- end card-->
      <br>
  <div class="row">
   <section class="container" id="target">

@@ -40,9 +40,11 @@
                                     <form class="form-horizontal" action="">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="alert  alert-dismissible" style="background-color: #3051D3;color: #fff;">
-                                                    <b>successfully </b> registered
+                                                {% block content %}
+                                                     <div class="alert  alert-dismissible" style="background-color: #3051D3;color: #fff;">
+                                                    <b>successfully </b> Registered
                                                 </div>
+                                                {% endblock %}
                                                 <div class="mt-4 text-center">
                                                     <a href="{% url 'login_view' %}" class="text-muted">
                                                         {% icon  'fas fa-user-circle' %} back to login</a>

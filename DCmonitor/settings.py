@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     # packages
     'widget_tweaks',
     'django_icons',
-    #API
+    # API
     'rest_framework',
     'rest_framework.authtoken',
 ]
@@ -138,7 +138,6 @@ REST_FRAMEWORK = {
 
 }
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
@@ -168,3 +167,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 # heroku database setup
 django_heroku.settings(locals())
+
+# SMTP Configuration
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'dcmonitor.future@gmail.com'
+EMAIL_HOST_PASSWORD = 'dc909090'

@@ -1,3 +1,5 @@
+from abc import ABC
+
 from django.forms import FileField
 from rest_framework import serializers
 from django.contrib.auth import authenticate
@@ -130,14 +132,26 @@ class SERSerializer(ModelSerializer):
         fields = ['SER', 'user']
 
 
-class PasswordSerializer(ModelSerializer):
-    password = CharField(required=True, write_only=True)
+class ChangePasswordSerializer(serializers.Serializer):
+    model = User
+
+    """
+    Serializer for password change endpoint.
+    """
+    old_password = serializers.CharField(required=True)
+    new_password = serializers.CharField(required=True)
 
 
 class BillSerializer(ModelSerializer):
     class Meta:
         model = Bill
         fields = ['user', 'consumption', 'bill', 'price_category', 'conception_date']
+
+
+class WattageCalculator(serializers.Serializer):
+    wattage = serializers.FloatField(required=True)
+    hours = serializers.FloatField(required=True)
+    days = serializers.IntegerField(required=True)
 
 
 class ApplianceCategorySerializer(HyperlinkedModelSerializer):

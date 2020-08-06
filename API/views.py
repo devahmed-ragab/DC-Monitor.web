@@ -7,17 +7,18 @@ from rest_framework.decorators import action, permission_classes
 from rest_framework.exceptions import ValidationError
 from rest_framework.parsers import FileUploadParser
 from rest_framework.settings import api_settings
-from django.utils.decorators import method_decorator
+from dc_monitor_app.monitor_calculations import UnknownDevice
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.generics import CreateAPIView, UpdateAPIView, GenericAPIView
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.authtoken.models import Token
 from rest_framework.parsers import FormParser, MultiPartParser, JSONParser
 from rest_framework.status import (
     HTTP_200_OK,
     HTTP_400_BAD_REQUEST)
 from API.serializer import (
+    WattageCalculator,
     ApplianceCategorySerializer,
     SmartMeterSerializer,
     UserClintValidatedSerializer,
@@ -28,7 +29,7 @@ from API.serializer import (
     AppliancesSerializer,
     UserClintValidatedSerializer,
     UserProfileSerializer,
-    PasswordSerializer, ImageSerializer, SERSerializer)
+    ChangePasswordSerializer, ImageSerializer, SERSerializer)
 from dc_monitor_app.models import *
 
 
@@ -36,7 +37,6 @@ class CustomAuthToken(ObtainAuthToken):
     permission_classes = [AllowAny, ]
 
     def post(self, request, *args, **kwargs):
-
         serializer = self.serializer_class(data=request.data,
                                            context={'request': request})
         serializer.is_valid(raise_exception=True)
@@ -156,6 +156,56 @@ class SmartMeterView(viewsets.ModelViewSet):
 class UserSerializerView(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserClintValidatedSerializer
+
+
+class ChangePasswordView(UpdateAPIView):
+    """
+    An endpoint for changing password.
+    """
+    serializer_class = ChangePasswordSerializer
+    model = User
+
+    # permission_classes = (IsAuthenticated,)
+
+    def get_object(self, queryset=None):
+        obj = self.request.user
+        return obj
+
+    def update(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        serializer = self.get_serializer(data=request.data)
+
+        if serializer.is_valid():
+            # Check old password
+            if not self.object.check_password(serializer.data.get("old_password")):
+                return Response({"old_password": ["Wrong password."]}, status=status.HTTP_400_BAD_REQUEST)
+            # set_password also hashes the password that the user will get
+            self.object.set_password(serializer.data.get("new_password"))
+            self.object.save()
+            response = {
+                'status': 'success',
+                'code': status.HTTP_200_OK,
+                'message': 'Password updated successfully',
+                'data': []
+            }
+
+            return Response(response)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class CalcWattageView(APIView):
+    def post(self, request, *args, **kwargs):
+        serializer = WattageCalculator(data=request.data)
+
+        if serializer.is_valid():
+            wattage = request.data['wattage']
+            days = request.data['days']
+            hours = request.data['hours']
+            device = UnknownDevice(wattage=float(wattage), hours=float(hours), days=float(days))
+            device_dic = device.price_dictionary()
+            return Response(device_dic, status=200)
+        return Response(serializer.errors, status=400)
 
 
 class ApplianceCategorySerializerView(viewsets.ModelViewSet):

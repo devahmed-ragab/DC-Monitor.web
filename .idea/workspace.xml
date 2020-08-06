@@ -5,7 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef8ca716-dfe7-4fd8-8352-3293d013ce0e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/dc_monitor_app/registraion/new_password.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/dc_monitor_app/registraion/password_succeess.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/serializer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/url.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DCmonitor/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DCmonitor/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dc_monitor_app/monitor_calculations.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/monitor_calculations.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dc_monitor_app/url.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/url.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dc_monitor_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/dc_monitor_app/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/registraion/email-verify.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/registraion/email-verify.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/registraion/forgat_password.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/registraion/forgat_password.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/registraion/register_success.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/registraion/register_success.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dc_monitor_app/user/featuers/wattage_calculation.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dc_monitor_app/user/featuers/wattage_calculation.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -78,8 +91,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -97,6 +110,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/static/images" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
@@ -128,7 +142,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Django server.DCmonitor">
+    <configuration name="monitor_calculations" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="DCmonitor" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dc_monitor_app" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dc_monitor_app/monitor_calculations.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="DCmonitor" type="Python.DjangoServer" factoryName="Django server">
       <module name="DCmonitor" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -153,6 +189,11 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.monitor_calculations" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -239,6 +280,12 @@
       <workItem from="1595756833664" duration="537000" />
       <workItem from="1595867077090" duration="133000" />
       <workItem from="1595902644464" duration="10645000" />
+      <workItem from="1595916710055" duration="124000" />
+      <workItem from="1596523190513" duration="574000" />
+      <workItem from="1596551210459" duration="2215000" />
+      <workItem from="1596554351769" duration="618000" />
+      <workItem from="1596648341743" duration="19999000" />
+      <workItem from="1596688998159" duration="1320000" />
     </task>
     <servers />
   </component>
@@ -260,5 +307,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/DCmonitor$monitor_calculations.coverage" NAME="monitor_calculations Coverage Results" MODIFIED="1596679323227" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dc_monitor_app" />
   </component>
 </project>
