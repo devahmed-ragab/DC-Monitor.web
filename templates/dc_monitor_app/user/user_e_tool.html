@@ -1,23 +1,9 @@
-{#{% extends 'dc_monitor_app/admin/add_tool_page.html' %}#}
-{#{% block header %}#}
-{#     <h4 class="card-title mb-0">Edit Tool </h4>#}
-{#{% endblock %}#}
-{#{% block form_action %}#}
-{#    <form class="card" method="POST">#}
-{#    {% csrf_token %}#}
-{#{% endblock %}#}
-{#{% block button %}#}
-{#    <button class="btn btn-primary" type="submit">Edit</button>#}
-{#{% endblock %}#}
 
 {% extends 'dc_monitor_app/base.html' %}
 {% load widget_tweaks %}
  {% block content %}
-{# <div class="page-wrapper">#}
-{#     {% include 'dc_monitor_app/information_bar.html' %}#}
-{#     <div class="page-body-wrapper">#}
-{#         {% include 'dc_monitor_app/sidebar.html' %}#}
-<div class="page-body">
+
+    <div class="page-body">
     <div class="container-fluid">
       <div class="page-header">
         <div class="row">
@@ -41,7 +27,7 @@
 
               <div class="card-header">
                   {% block header %}
-                <h4 class="card-title mb-0">EditTool</h4>
+                <h4 class="card-title mb-0">Edite SmartMeter</h4>
                       {% endblock %}
                 <div class="card-options"><a class="card-options-collapse" href="#" data-toggle="card-collapse">
                     <i class="fe fe-chevron-up"></i></a><a class="card-options-remove" href="#" data-toggle="card-remove">
@@ -71,4 +57,5 @@
 </div>
 {#     </div>#}
 {# </div>#}
+
 {% endblock %}

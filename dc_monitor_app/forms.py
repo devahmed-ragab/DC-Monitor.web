@@ -52,6 +52,12 @@ class AddDeviceForm(ModelForm):
         fields = ['SER']
 
 
+class AddDeviceF(ModelForm):
+    class Meta:
+        model = SmartMeters
+        fields = ['SER', 'user']
+
+
 class AddApplianceForm(ModelForm):
     class Meta:
         model = Appliances

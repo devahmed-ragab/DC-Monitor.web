@@ -8,10 +8,12 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Meter', 'Consumption per month'],
-          ['no.1', 11],
+
+          ['no.1', 2 ],
           ['no.2', 2],
           ['no.3',  2],
           ['no.4', 2]
+
         ]);
 
         var options = {
@@ -30,11 +32,9 @@
 {% include 'dc_monitor_app/loader.html' %}
 <div class="page-body">
 
-
-
-
     <div id="donutchart" style="width: 900px; height: 500px;"></div>
+{% for n in devices %}
 
-
+{% endfor %}
 </div>
 {% endblock %}

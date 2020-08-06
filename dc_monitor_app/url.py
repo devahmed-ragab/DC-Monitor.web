@@ -14,6 +14,8 @@ urlpatterns = [
     path('user/config', configuration_view, name='configuration'),
     path('user/analysis', consumption_analyses, name='cons_analysis'),
     path('user/meter/add', user_meter_add, name='user_meter_add'),
+    path('user/meter/edit/<str:SER>', user_edit_meter, name='user_edit_meter'),
+
 
     path('login/', login_view, name='login_view'),
     path('registration/', registration_view, name='registration_view'),
@@ -37,6 +39,7 @@ urlpatterns = [
     path('profile/', profile_view, name='profile'),
     path('edit-profile/', edit_profile_view, name='edit_profile'),
     path('change-password/', change_password, name='change_password'),
+    path('comingsoon/', comingsoon, name='coming_soon'),
 
     path('reset_password/',
          auth_views.PasswordResetView.as_view(template_name="dc_monitor_app/registraion/forgat_password.html"),

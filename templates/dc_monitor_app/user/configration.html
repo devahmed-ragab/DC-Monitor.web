@@ -46,10 +46,22 @@
                                                 </td>
 
                                                 <td>
-                                                    <a href="{{ device.get_absolute_url }}"
+{#                                                     {% if request.user.is_staff %}#}
+{##}
+{#                                                           <a href="{{ device.get_absolute_url }}"#}
+{#                                                       class="badge badge-pill pill-badge-secondary btn btn-primary "#}
+{#                                                       style="font-size: 13px;">Edit a</a>#}
+{#                                                    <a href="{{ device.get_absolute_url }}delete" class="badge badge-pill pill-badge-secondary btn btn-danger">delete</a>#}
+{##}
+{#                                                     {% else %}#}
+                                                              <a href="{% url 'user_edit_meter' SER=device.SER  %}"
                                                        class="badge badge-pill pill-badge-secondary btn btn-primary "
                                                        style="font-size: 13px;">Edit</a>
                                                     <a href="{{ device.get_absolute_url }}delete" class="badge badge-pill pill-badge-secondary btn btn-danger">delete</a>
+
+
+{#                                                    {% endif %}#}
+
                                                 </td>
 
                                             </tr>

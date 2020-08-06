@@ -9,7 +9,7 @@ from rest_framework.response import Response
 from .monitor_calculations import UnknownDevice
 from .decorators import *
 from .forms import *
-from .models import Clint
+from .models import Clint, SmartMeters
 
 
 def percentage(on_devices, all_devices):
@@ -161,9 +161,9 @@ def all_meters_view(request):
 
 
 @login_required(login_url='login_view')
-@allowed_groups(groups=['superadmin'])
+@allowed_groups(groups=['superadmin','user'])
 def edit_meter(request, SER):
-    # todo add user edite tool
+
     print("editing tool")
     tool = SmartMeters.objects.get(SER=SER)
     form = AddDeviceForm(instance=tool)
@@ -180,6 +180,27 @@ def edit_meter(request, SER):
         'form': form
     }
     return render(request, 'dc_monitor_app/admin/edit_tool.html', context)
+
+
+@login_required(login_url='login_view')
+@allowed_groups(groups=['user'])
+def user_edit_meter(request, SER):
+    device = SmartMeters.objects.get(SER=SER)
+    form = AddDeviceF(instance=device)
+    if request.method == 'POST':
+        form = AddDeviceF(request.POST, instance=device)
+        if form.is_valid():
+            device.delete()
+            device.SER = request.POST.get('SER')
+            device.user = request.user.clint
+            device.save()
+            return redirect('configuration')
+        else:
+            messages.error(request, 'SER is not valid')
+    context = {
+        'form': form
+    }
+    return render(request, 'dc_monitor_app/user/user_e_tool.html', context)
 
 
 # customer
@@ -310,9 +331,12 @@ def delete_meter(request, SER):
     device = SmartMeters.objects.get(SER=SER)
     if request.method == 'POST':
         device.delete()
-        if request.user.groups.get() == 'user':
+        g = request.user.groups.get()
+        if g == 'user':
+            print(g)
             return redirect('configuration')
-        return redirect('all_meters')
+        else:
+            return redirect('all_meters')
 
     context = {
         'item': device
@@ -460,3 +484,10 @@ def user_meter_add(request):
         return redirect('configuration')
 
     return render(request, 'dc_monitor_app/user/featuers/user_add_meter.html')
+
+
+# meter
+@login_required(login_url='login_view')
+@allowed_groups(groups=['user'])
+def comingsoon(request):
+    return render(request, 'dc_monitor_app/registraion/coming_soon.html')
