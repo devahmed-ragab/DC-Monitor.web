@@ -1,13 +1,14 @@
 # DC-Monitor.web
 ## Link
-```
-[dcmonitor-dcm.herokuapp.com](dcmonitor-dcm.herokuapp.com)
-```
 
+[dcmonitor-dcm.herokuapp.com](dcmonitor-dcm.herokuapp.com)
+
+## Clone
 Clone the project
 ```
 git clone https://github.com/erinallard/instagram_miner.git 
 ```
+## Installation
 Create and start a a virtual environment
 ```
 virtualenv env --no-site-packages
@@ -30,19 +31,20 @@ import os
 SECRET_KEY = os.environ.get('SECRET_KEY')
 ```
 
-Create a postgres DtataBase  and add the credentials to settings.py 
+Create a postgres DtataBase and add the credentials to settings.py 
 ```
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Monitor_DB',
-        'USER': 'postgres',
+        'NAME': 'Example_DB',
+        'USER': 'Example',
         'PASSWORD': '****',
         'HOST': 'localhost',
         'PORT': '5432'
     }
 }
 ```
+## Run 
 Run makemigarations :
 ```
 python manage.py makemigrations
